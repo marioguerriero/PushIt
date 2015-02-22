@@ -19,7 +19,7 @@
 
 .pragma library
 
-var access_token = "6IHM5OPzkRX66fcNQXsm1xorL1Lu0ebb";
+var access_token = null;
 var api = "https://api.pushbullet.com/v2/";
 var pushes = "pushes";
 var devices = "devices";

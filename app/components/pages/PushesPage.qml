@@ -119,7 +119,7 @@ Page {
     function loadData(data) {
         data.pushes = data;
         pushes = JSON.parse(data).pushes;
-console.log("test")
+
         for(var n = 0; n < pushes.length; n++) {
             var push = pushes[n];
             model.append({  "type":         push.type,
@@ -134,7 +134,7 @@ console.log("test")
                              "sender_email":push.sender_email
                          });
         }
-console.log(header)
+
         loading = false;
     }
 }
