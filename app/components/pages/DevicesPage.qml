@@ -55,6 +55,7 @@ Page {
 
         delegate: Standard {
             text: nickname
+            iconSource: "../../../data/" + type + ".png" // TODO: find a better way yo do that
         }
     }
 
