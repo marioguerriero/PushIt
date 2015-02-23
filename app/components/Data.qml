@@ -20,9 +20,9 @@
 import QtQuick 2.2
 
 QtObject {
-    property var pushes: []
-    property var devices: []
-    property var contacts: []
-    property var subscriptions: []
+    property var pushes
+    property var devices
+    property var contacts
+    property var subscriptions
     property var user
 }

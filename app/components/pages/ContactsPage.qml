@@ -19,9 +19,69 @@
 
 import QtQuick 2.2
 import Ubuntu.Components 1.1
+import Ubuntu.Components.ListItems 1.0
+import Ubuntu.Components.Popups 1.0
 
 Page {
     id: root
     title: i18n.tr("Contacts")
-    visible: false
+
+    property var contacts: null
+
+    property var loadingDialog
+    property bool loading: false
+    onLoadingChanged: {
+        if(!visible && !loading) {
+            if(loadingDialog != null) PopupUtils.close(loadingDialog);
+        }
+    }
+
+    onVisibleChanged: {
+        if(visible && loading) {
+            loadingDialog = PopupUtils.open(Qt.resolvedUrl("../dialogs/LoadingDialog.qml"), root);
+        }
+    }
+
+    ListModel {
+        id: model
+    }
+
+    UbuntuListView {
+        id: list
+        anchors.fill: parent
+        visible: !emptyLabel.visible
+        model: model
+        clip: true
+
+        delegate: Standard {
+            text: name
+        }
+    }
+
+    Label {
+        id: emptyLabel
+        anchors.centerIn: parent
+        visible: (model.count == undefined || model.count == 0)
+        fontSize: "x-large"
+        text: i18n.tr("No Contacts")
+    }
+
+    function loadData(data) {
+        data.contacts = data;
+        contacts = JSON.parse(data).contacts;
+
+        for(var n = 0; n < contacts.length; n++) {
+            var contact = contacts[n];
+            model.append({  "iden":             contact.iden,
+                             "name":            contact.name,
+                             "created":         contact.created,
+                             "modified":        contact.modified,
+                             "email":           contact.email,
+                             "email_normalized":contact.email_normalized,
+                             "active":          contact.active
+                         });
+        }
+
+        loading = false;
+    }
 }

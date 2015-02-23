@@ -24,7 +24,7 @@ var api = "https://api.pushbullet.com/v2/";
 var pushes = "pushes";
 var devices = "devices";
 var contacts = "contacts";
-var subscription = "subscription";
+var subscriptions = "subscriptions";
 var me = "users/me";
 
 // Utility
@@ -104,6 +104,18 @@ function getDevices(callback) {
         console.log("WARNING: access_token not set");
         return;
     }
+
+    var http = new XMLHttpRequest();
+    http.open("GET", api + devices, true, access_token);
+
+    http.onreadystatechange = function() {
+        if(http.status == 200 && http.readyState == 4) // OK
+            callback(http.responseText);
+        if(http.status == 401); // UNAUTHORIZED
+        if(http.status == 403); // FORBIDDEN
+        if(http.status > 500); // SERVER ERROR
+    };
+    http.send(null);
 }
 
 function deleteDevice(iden, callback) {
@@ -120,6 +132,18 @@ function getContacts(callback) {
         console.log("WARNING: access_token not set");
         return;
     }
+
+    var http = new XMLHttpRequest();
+    http.open("GET", api + contacts, true, access_token);
+
+    http.onreadystatechange = function() {
+        if(http.status == 200 && http.readyState == 4) // OK
+            callback(http.responseText);
+        if(http.status == 401); // UNAUTHORIZED
+        if(http.status == 403); // FORBIDDEN
+        if(http.status > 500); // SERVER ERROR
+    };
+    http.send(null);
 }
 
 function addContact(name, email, callback) {
@@ -143,6 +167,18 @@ function getSubscriptions(callback) {
         console.log("WARNING: access_token not set");
         return;
     }
+
+    var http = new XMLHttpRequest();
+    http.open("GET", api + subscriptions, true, access_token);
+
+    http.onreadystatechange = function() {
+        if(http.status == 200 && http.readyState == 4) // OK
+            callback(http.responseText);
+        if(http.status == 401); // UNAUTHORIZED
+        if(http.status == 403); // FORBIDDEN
+        if(http.status > 500); // SERVER ERROR
+    };
+    http.send(null);
 }
 
 // User
@@ -152,4 +188,16 @@ function getUserInformations(callback) {
         console.log("WARNING: access_token not set");
         return;
     }
+
+    var http = new XMLHttpRequest();
+    http.open("GET", api + me, true, access_token);
+
+    http.onreadystatechange = function() {
+        if(http.status == 200 && http.readyState == 4) // OK
+            callback(http.responseText);
+        if(http.status == 401); // UNAUTHORIZED
+        if(http.status == 403); // FORBIDDEN
+        if(http.status > 500); // SERVER ERROR
+    };
+    http.send(null);
 }

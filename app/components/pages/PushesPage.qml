@@ -27,7 +27,6 @@ import "../../js/Pushbullet.js" as Pushbullet
 Page {
     id: root
     title: i18n.tr("Pushes")
-    //head.foregroundColor: "#27AE60"
 
     property var pushes: null
 
@@ -35,7 +34,7 @@ Page {
     property bool loading: false
     onLoadingChanged: {
         if(!loading) {
-            PopupUtils.close(loadingDialog);
+            if(loadingDialog != null) PopupUtils.close(loadingDialog);
         }
     }
 
@@ -48,6 +47,7 @@ Page {
         anchors.fill: parent
         model: model
         clip: true
+        visible: !emptyLabel.visible
 
         delegate: Expandable {
             id: item
@@ -82,7 +82,7 @@ Page {
                             return url ? url : "";
                         }
                         else if(type == "file") {
-
+                            return "";
                         }
                         return "";
                     }
@@ -105,6 +105,14 @@ Page {
                 }
             }
         }
+    }
+
+    Label {
+        id: emptyLabel
+        anchors.centerIn: parent
+        visible: (model.count == undefined || model.count == 0)
+        fontSize: "x-large"
+        text: i18n.tr("No Pushes")
     }
 
     Component.onCompleted: {

@@ -42,10 +42,10 @@ MainView {
 
         Tabs {
             id: tabs
-            Tab { title: page.title; page: PushesPage {} }
-            Tab { title: page.title; page: ContactsPage {} }
-            Tab { title: page.title; page: DevicesPage {} }
-            Tab { title: page.title; page: SubscriptionsPage {} }
+            Tab { title: page.title; page: PushesPage { id: pushesPage } }
+            Tab { title: page.title; page: ContactsPage { id: contactsPage } }
+            Tab { title: page.title; page: DevicesPage { id: devicesPage } }
+            Tab { title: page.title; page: SubscriptionsPage { id: subscriptionsPage } }
         }
 
         AuthPage {
@@ -72,6 +72,16 @@ MainView {
         else
             stack.push(tabs);
         Pushbullet.setAccessToken(token);
+
+        // Start loading informations in background
+        devicesPage.loading = true;
+        Pushbullet.getDevices(devicesPage.loadData);
+
+        contactsPage.loading = true;
+        Pushbullet.getContacts(contactsPage.loadData);
+
+        subscriptionsPage.loading = true;
+        Pushbullet.getSubscriptions(subscriptionsPage.loadData);
     }
 }
 

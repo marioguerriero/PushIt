@@ -19,9 +19,74 @@
 
 import QtQuick 2.2
 import Ubuntu.Components 1.1
+import Ubuntu.Components.ListItems 1.0
+import Ubuntu.Components.Popups 1.0
 
 Page {
     id: root
     title: i18n.tr("Devices")
-    visible: false
+
+    property var devices: null
+
+    property var loadingDialog
+    property bool loading: false
+    onLoadingChanged: {
+        if(!visible && !loading) {
+            if(loadingDialog != null) PopupUtils.close(loadingDialog);
+        }
+    }
+
+    onVisibleChanged: {
+        if(visible && loading) {
+            loadingDialog = PopupUtils.open(Qt.resolvedUrl("../dialogs/LoadingDialog.qml"), root);
+        }
+    }
+
+    ListModel {
+        id: model
+    }
+
+    UbuntuListView {
+        id: list
+        anchors.fill: parent
+        model: model
+        visible: !emptyLabel.visible
+        clip: true
+
+        delegate: Standard {
+            text: nickname
+        }
+    }
+
+    Label {
+        id: emptyLabel
+        anchors.centerIn: parent
+        visible: (model.count == undefined || model.count == 0)
+        fontSize: "x-large"
+        text: i18n.tr("No Contacts")
+    }
+
+    function loadData(data) {
+        data.devices = data;
+        devices = JSON.parse(data).devices;
+
+        for(var n = 0; n < devices.length; n++) {
+            var device = devices[n];
+            model.append({  "iden":         device.iden,
+                             "push_token":  device.push_toekn,
+                             "app_version": device.app_version,
+                             "fingerprint": device.fingerprint,
+                             "active":      device.active,
+                             "nickname":    device.nickname,
+                             "manufacturer":device.manufacturer,
+                             "type":        device.type,
+                             "created":     device.created,
+                             "modified":    device.modified,
+                             "model":       device.model,
+                             "pushable":    device.pushable
+                         });
+        }
+
+        loading = false
+    }
 }
