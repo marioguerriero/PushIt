@@ -32,7 +32,23 @@ QtObject {
 
     function getIconSourceFromIden(iden, size) {
         if(size == null) size = 200;
-        if(user.iden == iden) return resizeImg(user.image_url, size);
+
+        // Is it from user himself?
+        if(user != null && user.iden == iden) return resizeImg(user.image_url, size);
+
+        // Is it from a subscribed channel?
+        for(var n = 0; n < subscriptions.length; n++) {
+            var subscription = subscriptions[n];
+            if(subscription.channel != null) {
+                console.log("IDEN: " + iden)
+                console.log("Subscription: " + subscription.channel.iden)
+            }
+            //if(subscription.channel != null)console.log(subscription.channel.iden)
+            if(subscription.channel != null && subscription.channel.iden == iden) {
+                return resizeImg(subscription.channel.image_url, size);
+            }
+        }
+
         return resizeImg(user.image_url, size); // TODO: fallback to something
     }
 

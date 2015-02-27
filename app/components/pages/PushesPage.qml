@@ -68,20 +68,21 @@ Page {
                     height: item.collapsedHeight
                     Row {
                         anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter}
+                        spacing: units.gu(1)
                         UbuntuShape {
                             id: iconShape
                             height: units.gu(5)
                             width: height
-                            anchors { left: parent.left; verticalCenter: parent.verticalCenter}
-                            Image {
+                            anchors.verticalCenter: parent.verticalCenter
+                            image: Image {
                                 anchors.fill: parent
-                                source: pbData.getIconSourceFromIden(sender_iden)
+                                source: pbData.getIconSourceFromIden(sender_iden ? sender_iden : channel_iden)
+                                onSourceChanged: console.log(source)
                             }
                         }
                         Label {
                             id: titleLabel
-                            anchors { left: iconShape.right; right: parent.right; verticalCenter: parent.verticalCenter;
-                                        leftMargin: units.gu(1); }
+                            anchors.verticalCenter: parent.verticalCenter
                             text: title ? title : i18n.tr("Untitled")
                             maximumLineCount: list.expandedIndex == index ? 1000 : 2
                             elide: Text.ElideRight
@@ -92,18 +93,12 @@ Page {
 
                 Label {
                     anchors { left: parent.left; right: parent.right }
+                    color: type == "link" ? "blue" : "white"
+                    font.underline: type == "link"
                     text: {
-                        if(type == "note") {
-                            return body ? body : "";
-                        }
-                        else if(type == "link") {
-                            color = "blue";
-                            font.underline = true;
-                            return url ? url : "";
-                        }
-                        else if(type == "file") {
-                            return "";
-                        }
+                        if(type == "note") return body ? body : "";
+                        else if(type == "link") return url ? url : "";
+                        else if(type == "file") return "";
                         return "";
                     }
                     wrapMode: Text.WordWrap
@@ -159,6 +154,7 @@ Page {
                              "active":      push.active,
                              "dismissed":   push.dismissed,
                              "sender_iden": push.sender_iden,
+                             "channel_iden":push.channel_iden,
                              "sender_email":push.sender_email
                          });
         }
