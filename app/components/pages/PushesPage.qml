@@ -51,7 +51,10 @@ Page {
 
         delegate: Expandable {
             id: item
+            collapseOnClick: true
             expandedHeight: contentColumn.height + units.gu(1)
+            removable: true
+            confirmRemoval: true
 
             onClicked: {
                 list.expandedIndex = index;
@@ -63,10 +66,27 @@ Page {
                 Item {
                     anchors { left: parent.left; right: parent.right}
                     height: item.collapsedHeight
-                    Label {
+                    Row {
                         anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter}
-                        text: title ? title : i18n.tr("Untitled")
-                        wrapMode: Text.WordWrap
+                        UbuntuShape {
+                            id: iconShape
+                            height: units.gu(5)
+                            width: height
+                            anchors { left: parent.left; verticalCenter: parent.verticalCenter}
+                            Image {
+                                anchors.fill: parent
+                                source: pbData.getIconSourceFromIden(sender_iden)
+                            }
+                        }
+                        Label {
+                            id: titleLabel
+                            anchors { left: iconShape.right; right: parent.right; verticalCenter: parent.verticalCenter;
+                                        leftMargin: units.gu(1); }
+                            text: title ? title : i18n.tr("Untitled")
+                            maximumLineCount: list.expandedIndex == index ? 1000 : 2
+                            elide: Text.ElideRight
+                            wrapMode: Text.WordWrap
+                        }
                     }
                 }
 
@@ -125,8 +145,8 @@ Page {
     }
 
     function loadData(data) {
-        data.pushes = data;
-        pushes = JSON.parse(data).pushes;
+        pbData.pushes = JSON.parse(data).pushes;
+        pushes = pbData.pushes;
 
         for(var n = 0; n < pushes.length; n++) {
             var push = pushes[n];

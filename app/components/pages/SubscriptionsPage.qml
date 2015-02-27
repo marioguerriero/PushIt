@@ -69,8 +69,8 @@ Page {
     }
 
     function loadData(data) {
-        data.subscriptions = data;
-        subscriptions = JSON.parse(data).subscriptions;
+        pbData.subscriptions = JSON.parse(data).subscriptions;
+        subscriptions = pbData.subscriptions;
 
         for(var n = 0; n < subscriptions.length; n++) {
             var subscription = subscriptions[n];
@@ -85,4 +85,11 @@ Page {
 
         loading = false;
     }
+
+    actions: [
+        Action {
+            iconName: "new"
+        }
+
+    ]
 }

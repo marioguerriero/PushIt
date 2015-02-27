@@ -68,8 +68,8 @@ Page {
     }
 
     function loadData(data) {
-        data.devices = data;
-        devices = JSON.parse(data).devices;
+        pbData.devices = JSON.parse(data).devices;
+        devices = pbData.devices;
 
         for(var n = 0; n < devices.length; n++) {
             var device = devices[n];

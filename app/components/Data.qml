@@ -25,4 +25,27 @@ QtObject {
     property var contacts
     property var subscriptions
     property var user
+
+    property string googleImgDomain: "googleusercontent.com"
+    property string facebookImgDomain: "graph.facebook.com"
+    property string pushbulletImgDomain: "pushbullet.imgix.net"
+
+    function getIconSourceFromIden(iden, size) {
+        if(size == null) size = 200;
+        if(user.iden == iden) return resizeImg(user.image_url, size);
+        return resizeImg(user.image_url, size); // TODO: fallback to something
+    }
+
+    function resizeImg(url, size) {
+        if(url.indexOf(googleImgDomain) != -1) {
+            return url + "?sz=" + size;
+        }
+        else if(url.indexOf(facebookImgDomain) != -1) {
+            return url + "?width=" + size + "&height=" + size;
+        }
+        else if(url.indexOf(pushbulletImgDomain) != -1) {
+            return url + "?w=" + size + "&h=" + size + "&fit=crop";
+        }
+        return url;
+    }
 }

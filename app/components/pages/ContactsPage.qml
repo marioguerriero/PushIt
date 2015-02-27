@@ -67,8 +67,8 @@ Page {
     }
 
     function loadData(data) {
-        data.contacts = data;
-        contacts = JSON.parse(data).contacts;
+        pbData.contacts = JSON.parse(data).contacts;
+        contacts = pbData.contacts;
 
         for(var n = 0; n < contacts.length; n++) {
             var contact = contacts[n];

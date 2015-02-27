@@ -35,7 +35,7 @@ MainView {
     width: units.gu(100)
     height: units.gu(75)
 
-    //backgroundColor: "#27AE60"
+    backgroundColor: "#27AE60"
 
     PageStack {
         id: stack
@@ -48,14 +48,13 @@ MainView {
             Tab { title: page.title; page: SubscriptionsPage { id: subscriptionsPage } }
         }
 
-        AuthPage {
-            id: authPage
-            visible: false
-        }
+        UserPage { id: userPage }
+
+        AuthPage { id: authPage }
     }
 
     Data {
-        id: data
+        id: pbData
     }
 
     Settings {
@@ -82,6 +81,9 @@ MainView {
 
         subscriptionsPage.loading = true;
         Pushbullet.getSubscriptions(subscriptionsPage.loadData);
+
+        userPage.loading = true;
+        Pushbullet.getUserInformations(userPage.loadData);
     }
 }
 
