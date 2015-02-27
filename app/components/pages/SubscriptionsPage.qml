@@ -33,6 +33,9 @@ Page {
     property var loadingDialog
     property bool loading: false
     onLoadingChanged: {
+        if(!loading && loadingDialog != null) {
+            PopupUtils.close(loadingDialog);
+        }
         if(!visible && !loading) {
             if(loadingDialog != null) PopupUtils.close(loadingDialog);
         }
@@ -59,6 +62,15 @@ Page {
             text: channel.name
             subText: channel.description
             iconSource: channel.image_url
+            removable: true
+            confirmRemoval: true
+
+            onItemRemoved: {
+                var deleteSuccess = function(data) {
+                    reload();
+                };
+                Pushbullet.deleteSubscription(iden, deleteSuccess);
+            }
         }
     }
 
@@ -90,6 +102,7 @@ Page {
 
     function reload() {
         loading = true;
+        loadingDialog = PopupUtils.open(Qt.resolvedUrl("../dialogs/LoadingDialog.qml"), root);
         model.clear();
         Pushbullet.getSubscriptions(loadData);
     }

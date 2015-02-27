@@ -161,4 +161,14 @@ Page {
 
         loading = false;
     }
+
+    tools: ToolbarItems {
+        ToolbarButton {
+            action: Action {
+                text: i18n.tr("Push")
+                iconName: "compose"
+                onTriggered: stack.push(postPushPage)
+            }
+        }
+    }
 }

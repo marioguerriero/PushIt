@@ -84,7 +84,7 @@ function getPushes(modified_after, active, callback) {
 
     var http = new XMLHttpRequest();
     var params = "modified_after=" + modified_after;
-    if(active == true) params += "&active=true";
+    if(active == true) params += "&active";
     http.open("GET", api + pushes, true, access_token);
 
     http.onreadystatechange = function() {
@@ -204,6 +204,26 @@ function subscribe(tag, callback) {
         if(http.status > 500); // SERVER ERROR
     };
     http.send(JSON.stringify(params));
+}
+
+function deleteSubscription(iden, callback) {
+    if(access_token == null) {
+        console.log("WARNING: access_token not set");
+        return;
+    }
+
+    var http = new XMLHttpRequest();
+    var params = "/" + iden;
+    http.open("DELETE", api + subscriptions + params, true, access_token);
+
+    http.onreadystatechange = function() {
+        if(http.status == 200 && http.readyState == 4) // OK
+            callback(http.responseText);
+        if(http.status == 401); // UNAUTHORIZED
+        if(http.status == 403); // FORBIDDEN
+        if(http.status > 500); // SERVER ERROR
+    };
+    http.send(null);
 }
 
 // User

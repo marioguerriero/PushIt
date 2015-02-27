@@ -51,9 +51,11 @@ Dialog {
     Button {
         text: i18n.tr("Subscribe")
         onClicked: {
-            Pushbullet.subscribe(idField.text);
-            PopupUtils.close(root);
-            caller.reload();
+            var subscriptionSuccess = function() {
+                PopupUtils.close(root);
+                caller.reload();
+            };
+            Pushbullet.subscribe(idField.text, subscriptionSuccess);
         }
     }
 
