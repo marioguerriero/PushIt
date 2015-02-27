@@ -24,45 +24,25 @@ import Ubuntu.Components.Popups 1.0
 
 Page {
     id: root
-    title: i18n.tr("Push")
     visible: false
 
+    property var icon: iconShape.icon
+    property alias description: descriptionLabel.text
+
     Column {
-        anchors.fill: parent
-        anchors.leftMargin: units.gu(2)
-        anchors.rightMargin: units.gu(2)
-        spacing: units.gu(2)
+        anchors.centerIn: parent
 
-        ItemSelector {
-            id: selector
-            text: i18n.tr("Type:")
-            model: [ i18n.tr("Note"), i18n.tr("Link"), i18n.tr("File") ]
+        spacing: units.gu(4)
+
+        UbuntuShape {
+            id: iconShape
+            height: units.gu(24)
+            width: height
         }
 
-        TextField {
-            id: titleField
-            width: parent.width
-            placeholderText: i18n.tr("Title")
-        }
-
-        TextArea {
-            id: bodyArea
-            width: parent.width
-            placeholderText: selector.selectedIndex == 1 ? i18n.tr("Link") : i18n.tr("Content")
-        }
-    }
-
-    function push() {
-
-    }
-
-    tools: ToolbarItems {
-        ToolbarButton {
-            action: Action {
-                text: i18n.tr("Push")
-                iconName: "save"
-                onTriggered: push()
-            }
+        Label {
+            id: descriptionLabel
+            fontSize: "large"
         }
     }
 }

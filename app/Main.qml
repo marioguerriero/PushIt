@@ -52,6 +52,8 @@ MainView {
 
         PostPushPage { id: postPushPage }
 
+        ChannelPage { id: channelPage }
+
         AuthPage { id: authPage }
     }
 

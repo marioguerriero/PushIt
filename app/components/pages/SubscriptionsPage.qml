@@ -71,6 +71,13 @@ Page {
                 };
                 Pushbullet.deleteSubscription(iden, deleteSuccess);
             }
+
+            onClicked: {
+                // TODO
+                //stack.push(channelPage);
+                //channelPage.title = channel.name;
+                //channelPage.description = channel.description;
+            }
         }
     }
 
