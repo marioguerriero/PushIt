@@ -21,6 +21,8 @@ import QtQuick 2.2
 import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 1.0
 
+import "../../js/Pushbullet.js" as Pushbullet
+
 Dialog {
     id: root
     title: i18n.tr("New Subscription")
@@ -33,7 +35,7 @@ Dialog {
 
         MouseArea {
             anchors.fill: parent
-            onClicked: Qt.openUrlExternally("https://www.pushbullet.com/channel")
+            onClicked: Qt.openUrlExternally("https://www.pushbullet.com/channels")
         }
     }
 
@@ -42,10 +44,18 @@ Dialog {
     }
 
     Button {
+        text: i18n.tr("Cancel")
         onClicked: PopupUtils.close(root)
     }
 
     Button {
-        onClicked: PopupUtils.close(root)
+        text: i18n.tr("Subscribe")
+        onClicked: {
+            Pushbullet.subscribe(idField.text);
+            PopupUtils.close(root);
+            caller.reload();
+        }
     }
+
+    Component.onCompleted: idField.forceActiveFocus()
 }

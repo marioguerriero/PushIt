@@ -22,6 +22,8 @@ import Ubuntu.Components 1.1
 import Ubuntu.Components.ListItems 1.0
 import Ubuntu.Components.Popups 1.0
 
+import "../../js/Pushbullet.js" as Pushbullet
+
 Page {
     id: root
     title: i18n.tr("Subscriptions")
@@ -86,10 +88,19 @@ Page {
         loading = false;
     }
 
-    actions: [
-        Action {
-            iconName: "new"
-        }
+    function reload() {
+        loading = true;
+        model.clear();
+        Pushbullet.getSubscriptions(loadData);
+    }
 
-    ]
+    tools: ToolbarItems {
+        ToolbarButton {
+            action: Action {
+                text: i18n.tr("Subscribe")
+                iconName: "add"
+                onTriggered: PopupUtils.open(Qt.resolvedUrl("../dialogs/SubscribeDialog.qml"), root);
+            }
+        }
+    }
 }
