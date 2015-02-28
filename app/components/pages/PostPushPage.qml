@@ -31,14 +31,20 @@ Page {
 
     Column {
         anchors.fill: parent
-        anchors.leftMargin: units.gu(2)
-        anchors.rightMargin: units.gu(2)
-        spacing: units.gu(2)
+        anchors.leftMargin: units.gu(1)
+        anchors.rightMargin: units.gu(1)
+        spacing: units.gu(1)
 
         ItemSelector {
-            id: selector
+            id: typeSelector
             text: i18n.tr("Type:")
             model: [ i18n.tr("Note"), i18n.tr("Link"), i18n.tr("File") ]
+        }
+
+        SingleValue {
+            id: deviceSelector
+            text: i18n.tr("To:")
+            value: i18n.tr("None")
         }
 
         TextField {
@@ -51,31 +57,32 @@ Page {
             id: urlField
             width: parent.width
             placeholderText: i18n.tr("Url")
-            visible: selector.selectedIndex == 1
+            visible: typeSelector.selectedIndex == 1
         }
 
         TextArea {
             id: bodyArea
             width: parent.width
-            placeholderText: selector.selectedIndex == 1 ? i18n.tr("Description") : i18n.tr("Content")
+            placeholderText: typeSelector.selectedIndex == 1 ? i18n.tr("Description") : i18n.tr("Content")
         }
     }
+
 
     function push() {
         var data = {};
 
-        if(selector.selectedIndex == 0) { // Note
+        if(typeSelector.selectedIndex == 0) { // Note
             data = {    "type": "note",
-                        "title": titleField.text,
-                        "body": bodyArea.text };
+                "title": titleField.text,
+                "body": bodyArea.text };
         }
-        else if(selector.selectedIndex == 1) { // Link
+        else if(typeSelector.selectedIndex == 1) { // Link
             data = {    "type": "link",
-                        "title": titleField.text,
-                        "body": bodyArea.text,
-                        "url": urlField.text };
+                "title": titleField.text,
+                "body": bodyArea.text,
+                "url": urlField.text };
         }
-        else if(selector.selectedIndex == 2) { // File
+        else if(typeSelector.selectedIndex == 2) { // File
 
         }
 
