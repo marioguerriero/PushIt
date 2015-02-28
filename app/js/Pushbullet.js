@@ -42,11 +42,29 @@ function setAccessToken(token) {
 
 // Pushes
 
-function push(type, dev, email, data, callback) {
+function push(data, callback) {
     if(access_token == null) {
         console.log("WARNING: access_token not set");
         return;
     }
+
+    var http = new XMLHttpRequest();
+    var params = JSON.stringify(data);
+    http.open("POST", api + pushes, true, access_token);
+
+    //Send the proper header information along with the request
+    http.setRequestHeader("Content-type", "application/json");
+    http.setRequestHeader("Content-length", params.length);
+    http.setRequestHeader("Connection", "close");
+
+    http.onreadystatechange = function() {
+        if(http.status == 200 && http.readyState == 4) // OK
+            callback(http.responseText);
+        if(http.status == 401); // UNAUTHORIZED
+        if(http.status == 403); // FORBIDDEN
+        if(http.status > 500); // SERVER ERROR
+    };
+    http.send(params);
 }
 
 function deletePush(iden, callback) {
@@ -54,6 +72,19 @@ function deletePush(iden, callback) {
         console.log("WARNING: access_token not set");
         return;
     }
+
+    var http = new XMLHttpRequest();
+    var params = "/" + iden;
+    http.open("DELETE", api + pushes + params, true, access_token);
+
+    http.onreadystatechange = function() {
+        if(http.status == 200 && http.readyState == 4) // OK
+            callback(http.responseText);
+        if(http.status == 401); // UNAUTHORIZED
+        if(http.status == 403); // FORBIDDEN
+        if(http.status > 500); // SERVER ERROR
+    };
+    http.send(null);
 }
 
 function deleteAllPushes(callback) {
@@ -61,19 +92,18 @@ function deleteAllPushes(callback) {
         console.log("WARNING: access_token not set");
         return;
     }
-}
 
-function pushNote(dev, email, data, callback) {
-    push("note", dev, data);
-}
+    var http = new XMLHttpRequest();
+    http.open("DELETE", api + pushes, true, access_token);
 
-function pushLink(dev, email, data, callback) {
-    push("link", dev, data);
-}
-
-function pushFile(dev, email, data, callback) {
-    uploadFile(data.file_name, data.file_type);
-    push("file", dev, data);
+    http.onreadystatechange = function() {
+        if(http.status == 200 && http.readyState == 4) // OK
+            callback(http.responseText);
+        if(http.status == 401); // UNAUTHORIZED
+        if(http.status == 403); // FORBIDDEN
+        if(http.status > 500); // SERVER ERROR
+    };
+    http.send(null);
 }
 
 function getPushes(modified_after, active, callback) {

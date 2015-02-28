@@ -22,6 +22,8 @@ import Ubuntu.Components 1.1
 import Ubuntu.Components.ListItems 1.0
 import Ubuntu.Components.Popups 1.0
 
+import "../../js/Pushbullet.js" as Pushbullet
+
 Page {
     id: root
     title: i18n.tr("Push")
@@ -45,15 +47,44 @@ Page {
             placeholderText: i18n.tr("Title")
         }
 
+        TextField {
+            id: urlField
+            width: parent.width
+            placeholderText: i18n.tr("Url")
+            visible: selector.selectedIndex == 1
+        }
+
         TextArea {
             id: bodyArea
             width: parent.width
-            placeholderText: selector.selectedIndex == 1 ? i18n.tr("Link") : i18n.tr("Content")
+            placeholderText: selector.selectedIndex == 1 ? i18n.tr("Description") : i18n.tr("Content")
         }
     }
 
     function push() {
+        var data = {};
 
+        if(selector.selectedIndex == 0) { // Note
+            data = {    "type": "note",
+                        "title": titleField.text,
+                        "body": bodyArea.text };
+        }
+        else if(selector.selectedIndex == 1) { // Link
+            data = {    "type": "link",
+                        "title": titleField.text,
+                        "body": bodyArea.text,
+                        "url": urlField.text };
+        }
+        else if(selector.selectedIndex == 2) { // File
+
+        }
+
+        var dialog = PopupUtils.open(Qt.resolvedUrl("../dialogs/LoadingDialog.qml"), root);
+        var loadingFinished = function(data) {
+            PopupUtils.close(dialog);
+            stack.pop();
+        }
+        Pushbullet.push(data, loadingFinished);
     }
 
     tools: ToolbarItems {

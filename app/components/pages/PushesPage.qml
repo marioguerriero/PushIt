@@ -60,6 +60,12 @@ Page {
                 list.expandedIndex = index;
             }
 
+            onItemRemoved: {
+                Pushbullet.deletePush(iden);
+            }
+
+            Component.onCompleted: console.log(type)
+
             Column {
                 id: contentColumn
                 anchors { left: parent.left; right: parent.right }
@@ -139,13 +145,22 @@ Page {
         }
     }
 
+    function reload() {
+        loading = true;
+        loadingDialog = PopupUtils.open(Qt.resolvedUrl("../dialogs/LoadingDialog.qml"), root);
+        model.clear();
+        Pushbullet.getPushes(loadData);
+    }
+
     function loadData(data) {
         pbData.pushes = JSON.parse(data).pushes;
         pushes = pbData.pushes;
 
         for(var n = 0; n < pushes.length; n++) {
             var push = pushes[n];
-            model.append({  "type":         push.type,
+            if(push.type == null) continue;
+            model.append({   "iden":        push.iden,
+                             "type":        push.type,
                              "title":       push.title,
                              "body":        push.body,
                              "url":         push.url,
