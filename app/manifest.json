@@ -1,6 +1,6 @@
 {
     "name": "pushit.mefrio",
-    "description": "PushBullet client",
+    "description": "Pushbullet client",
     "architecture": "all",
     "title": "PushIt",
     "hooks": {

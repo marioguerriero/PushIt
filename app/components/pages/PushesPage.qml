@@ -69,13 +69,13 @@ Page {
                 anchors { left: parent.left; right: parent.right }
                 Item {
                     anchors { left: parent.left; right: parent.right}
-                    height: item.collapsedHeight
+                    height: item.expanded ? item.collapsedHeight + units.gu(3) : item.collapsedHeight
                     Row {
-                        anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter}
+                        anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
                         spacing: units.gu(1)
                         UbuntuShape {
                             id: iconShape
-                            height: units.gu(5)
+                            height: item.expanded ? units.gu(8) : units.gu(5)
                             width: height
                             anchors.verticalCenter: parent.verticalCenter
                             image: Image {
@@ -84,15 +84,28 @@ Page {
                                 onSourceChanged: console.log(source)
                             }
                         }
+
                         Label {
                             id: titleLabel
+                            width: parent.width - iconShape.width
                             anchors.verticalCenter: parent.verticalCenter
                             text: title ? title : i18n.tr("Untitled")
-                            maximumLineCount: list.expandedIndex == index ? 1000 : 2
+                            maximumLineCount: 1
                             elide: Text.ElideRight
                             wrapMode: Text.WordWrap
+                            fontSize: item.expanded ? "x-large" : "medium"
                         }
                     }
+                }
+
+                Label {
+                    anchors { left: parent.left; right: parent.right }
+                    text: {
+                        if(type == "note" || type == "link") return body ? body : "";
+                        return "";
+                    }
+                    visible: type != "file"
+                    wrapMode: Text.WordWrap
                 }
 
                 Label {
@@ -100,11 +113,10 @@ Page {
                     color: type == "link" ? "blue" : "white"
                     font.underline: type == "link"
                     text: {
-                        if(type == "note") return body ? body : "";
-                        else if(type == "link") return url ? url : "";
-                        else if(type == "file") return "";
+                        if(type == "link") return url ? url : "";
                         return "";
                     }
+                    visible: type == "link"
                     wrapMode: Text.WordWrap
 
                     MouseArea {
