@@ -64,8 +64,6 @@ Page {
                 Pushbullet.deletePush(iden);
             }
 
-            Component.onCompleted: console.log(type)
-
             Column {
                 id: contentColumn
                 anchors { left: parent.left; right: parent.right }
