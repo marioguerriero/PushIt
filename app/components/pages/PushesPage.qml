@@ -162,7 +162,11 @@ Page {
         Pushbullet.getPushes(loadData);
     }
 
-    function loadData(data) {
+    function loadData(data, error) {
+        if(error != null) {
+
+        }
+
         pbData.pushes = JSON.parse(data).pushes;
         pushes = pbData.pushes;
 

@@ -67,7 +67,11 @@ Page {
         text: i18n.tr("No Contacts")
     }
 
-    function loadData(data) {
+    function loadData(data, error) {
+        if(error != null) {
+
+        }
+
         pbData.devices = JSON.parse(data).devices;
         devices = pbData.devices;
 

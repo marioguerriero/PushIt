@@ -89,7 +89,11 @@ Page {
         text: i18n.tr("No Subscriptions")
     }
 
-    function loadData(data) {
+    function loadData(data, error) {
+        if(error != null) {
+
+        }
+
         pbData.subscriptions = JSON.parse(data).subscriptions;
         subscriptions = pbData.subscriptions;
 

@@ -33,7 +33,11 @@ Page {
         }
     }
 
-    function loadData(data) {
+    function loadData(data, error) {
+        if(error != null) {
+
+        }
+
         pbData.user = JSON.parse(data);
         loading = false;
     }

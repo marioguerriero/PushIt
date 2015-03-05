@@ -59,10 +59,13 @@ function push(data, callback) {
 
     http.onreadystatechange = function() {
         if(http.status == 200 && http.readyState == 4) // OK
-            callback(http.responseText);
-        if(http.status == 401); // UNAUTHORIZED
-        if(http.status == 403); // FORBIDDEN
-        if(http.status > 500); // SERVER ERROR
+            callback(http.responseText, null);
+        if(http.status == 401) // UNAUTHORIZED
+            callback(http.statusText, http.status);
+        if(http.status == 403) // FORBIDDEN
+            callback(http.statusText, http.status);
+        if(http.status > 500) // SERVER ERROR
+            callback(http.statusText, http.status);
     };
     http.send(params);
 }
@@ -79,10 +82,13 @@ function deletePush(iden, callback) {
 
     http.onreadystatechange = function() {
         if(http.status == 200 && http.readyState == 4) // OK
-            callback(http.responseText);
-        if(http.status == 401); // UNAUTHORIZED
-        if(http.status == 403); // FORBIDDEN
-        if(http.status > 500); // SERVER ERROR
+            callback(http.responseText, null);
+        if(http.status == 401) // UNAUTHORIZED
+            callback(http.statusText, http.status);
+        if(http.status == 403) // FORBIDDEN
+            callback(http.statusText, http.status);
+        if(http.status > 500) // SERVER ERROR
+            callback(http.statusText, http.status);
     };
     http.send(null);
 }
@@ -98,10 +104,13 @@ function deleteAllPushes(callback) {
 
     http.onreadystatechange = function() {
         if(http.status == 200 && http.readyState == 4) // OK
-            callback(http.responseText);
-        if(http.status == 401); // UNAUTHORIZED
-        if(http.status == 403); // FORBIDDEN
-        if(http.status > 500); // SERVER ERROR
+            callback(http.responseText, null);
+        if(http.status == 401) // UNAUTHORIZED
+            callback(http.statusText, http.status);
+        if(http.status == 403) // FORBIDDEN
+            callback(http.statusText, http.status);
+        if(http.status > 500) // SERVER ERROR
+            callback(http.statusText, http.status);
     };
     http.send(null);
 }
@@ -119,10 +128,13 @@ function getPushes(modified_after, active, callback) {
 
     http.onreadystatechange = function() {
         if(http.status == 200 && http.readyState == 4) // OK
-            callback(http.responseText);
-        if(http.status == 401); // UNAUTHORIZED
-        if(http.status == 403); // FORBIDDEN
-        if(http.status > 500); // SERVER ERROR
+            callback(http.responseText, null);
+        if(http.status == 401) // UNAUTHORIZED
+            callback(http.statusText, http.status);
+        if(http.status == 403) // FORBIDDEN
+            callback(http.statusText, http.status);
+        if(http.status > 500) // SERVER ERROR
+            callback(http.statusText, http.status);
     };
     http.send(params);
 }
@@ -140,10 +152,13 @@ function getDevices(callback) {
 
     http.onreadystatechange = function() {
         if(http.status == 200 && http.readyState == 4) // OK
-            callback(http.responseText);
-        if(http.status == 401); // UNAUTHORIZED
-        if(http.status == 403); // FORBIDDEN
-        if(http.status > 500); // SERVER ERROR
+            callback(http.responseText, null);
+        if(http.status == 401) // UNAUTHORIZED
+            callback(http.statusText, http.status);
+        if(http.status == 403) // FORBIDDEN
+            callback(http.statusText, http.status);
+        if(http.status > 500) // SERVER ERROR
+            callback(http.statusText, http.status);
     };
     http.send(null);
 }
@@ -167,10 +182,13 @@ function deleteDevice(iden, callback) {
 
     http.onreadystatechange = function() {
         if(http.status == 200 && http.readyState == 4) // OK
-            callback(http.responseText);
-        if(http.status == 401); // UNAUTHORIZED
-        if(http.status == 403); // FORBIDDEN
-        if(http.status > 500); // SERVER ERROR
+            callback(http.responseText, null);
+        if(http.status == 401) // UNAUTHORIZED
+            callback(http.statusText, http.status);
+        if(http.status == 403) // FORBIDDEN
+            callback(http.statusText, http.status);
+        if(http.status > 500) // SERVER ERROR
+            callback(http.statusText, http.status);
     };
     http.send(null);
 }
@@ -188,10 +206,13 @@ function getContacts(callback) {
 
     http.onreadystatechange = function() {
         if(http.status == 200 && http.readyState == 4) // OK
-            callback(http.responseText);
-        if(http.status == 401); // UNAUTHORIZED
-        if(http.status == 403); // FORBIDDEN
-        if(http.status > 500); // SERVER ERROR
+            callback(http.responseText, null);
+        if(http.status == 401) // UNAUTHORIZED
+            callback(http.statusText, http.status);
+        if(http.status == 403) // FORBIDDEN
+            callback(http.statusText, http.status);
+        if(http.status > 500) // SERVER ERROR
+            callback(http.statusText, http.status);
     };
     http.send(null);
 }
@@ -223,10 +244,13 @@ function getSubscriptions(callback) {
 
     http.onreadystatechange = function() {
         if(http.status == 200 && http.readyState == 4) // OK
-            callback(http.responseText);
-        if(http.status == 401); // UNAUTHORIZED
-        if(http.status == 403); // FORBIDDEN
-        if(http.status > 500); // SERVER ERROR
+            callback(http.responseText, null);
+        if(http.status == 401) // UNAUTHORIZED
+            callback(http.statusText, http.status);
+        if(http.status == 403) // FORBIDDEN
+            callback(http.statusText, http.status);
+        if(http.status > 500) // SERVER ERROR
+            callback(http.statusText, http.status);
     };
     http.send(null);
 }
@@ -248,10 +272,13 @@ function subscribe(tag, callback) {
 
     http.onreadystatechange = function() {
         if(http.status == 200 && http.readyState == 4) // OK
-            callback(http.responseText);
-        if(http.status == 401); // UNAUTHORIZED
-        if(http.status == 403); // FORBIDDEN
-        if(http.status > 500); // SERVER ERROR
+            callback(http.responseText, null);
+        if(http.status == 401) // UNAUTHORIZED
+            callback(http.statusText, http.status);
+        if(http.status == 403) // FORBIDDEN
+            callback(http.statusText, http.status);
+        if(http.status > 500) // SERVER ERROR
+            callback(http.statusText, http.status);
     };
     http.send(JSON.stringify(params));
 }
@@ -268,10 +295,13 @@ function deleteSubscription(iden, callback) {
 
     http.onreadystatechange = function() {
         if(http.status == 200 && http.readyState == 4) // OK
-            callback(http.responseText);
-        if(http.status == 401); // UNAUTHORIZED
-        if(http.status == 403); // FORBIDDEN
-        if(http.status > 500); // SERVER ERROR
+            callback(http.responseText, null);
+        if(http.status == 401) // UNAUTHORIZED
+            callback(http.statusText, http.status);
+        if(http.status == 403) // FORBIDDEN
+            callback(http.statusText, http.status);
+        if(http.status > 500) // SERVER ERROR
+            callback(http.statusText, http.status);
     };
     http.send(null);
 }
@@ -289,10 +319,13 @@ function getUserInformations(callback) {
 
     http.onreadystatechange = function() {
         if(http.status == 200 && http.readyState == 4) // OK
-            callback(http.responseText);
-        if(http.status == 401); // UNAUTHORIZED
-        if(http.status == 403); // FORBIDDEN
-        if(http.status > 500); // SERVER ERROR
+            callback(http.responseText, null);
+        if(http.status == 401) // UNAUTHORIZED
+            callback(http.statusText, http.status);
+        if(http.status == 403) // FORBIDDEN
+            callback(http.statusText, http.status);
+        if(http.status > 500) // SERVER ERROR
+            callback(http.statusText, http.status);
     };
     http.send(null);
 }
