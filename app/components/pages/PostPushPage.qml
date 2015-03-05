@@ -69,7 +69,7 @@ Page {
     }
 
 
-    function push() {
+    function push(fileInfo) {
         var data = {};
 
         if(typeSelector.selectedIndex == 0) { // Note
@@ -84,7 +84,11 @@ Page {
                 "url": urlField.text };
         }
         else if(typeSelector.selectedIndex == 2) { // File
-
+            data = {    "type": "file",
+                "file_name": fileInfo.file_name,
+                "file_type": fileInfo.file_type,
+                "file_url": fileInfo.file_url,
+                "body": bodyArea.text };
         }
 
         var dialog = PopupUtils.open(Qt.resolvedUrl("../dialogs/LoadingDialog.qml"), root);
@@ -100,7 +104,17 @@ Page {
             action: Action {
                 text: i18n.tr("Push")
                 iconName: "save"
-                onTriggered: push()
+                onTriggered: {
+                    if(typeSelector.selectedIndex != 2) // If not pushing a file
+                        push()
+                    else {
+                        var uploadComplete = function(fileInfo) {
+                            push(fileInfo);
+                        };
+
+                        Pushbullet.uploadFile("path", "mimetype", uploadComplete);
+                    }
+                }
             }
         }
     }

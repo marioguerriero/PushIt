@@ -21,19 +21,86 @@
 
 var access_token = null;
 var api = "https://api.pushbullet.com/v2/";
+var file_server = "https://s3.amazonaws.com/pushbullet-uploads";
 var pushes = "pushes";
 var devices = "devices";
 var contacts = "contacts";
 var subscriptions = "subscriptions";
 var me = "users/me";
+var upload_request = "upload-request";
 
 // Utility
-
-function uploadFile(path, mimetype) {
+function requestUploadAuthorization(path, mimetype, callback) {
     if(access_token == null) {
         console.log("WARNING: access_token not set");
         return;
     }
+
+    var http = new XMLHttpRequest();
+    var params = "file_name=" + path + "&file_type=" + mimetype;
+    http.open("POST", api + upload_request, true, access_token);
+
+    //Send the proper header information along with the request
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.setRequestHeader("Content-length", params.length);
+    http.setRequestHeader("Connection", "close");
+
+    http.onreadystatechange = function() {
+        if(http.status == 200 && http.readyState == 4) // OK
+            callback(http.responseText, null);
+        if(http.status == 401) // UNAUTHORIZED
+            callback(http.statusText, http.status);
+        if(http.status == 403) // FORBIDDEN
+            callback(http.statusText, http.status);
+        if(http.status > 500) // SERVER ERROR
+            callback(http.statusText, http.status);
+    };
+    http.send(params);
+}
+
+function uploadFile(path, mimetype, callback) {
+    if(access_token == null) {
+        console.log("WARNING: access_token not set");
+        return;
+    }
+
+    // Create an upload function which will upload the file
+    var upload = function(data, error) {
+        if(error != null) {
+            return;
+        }
+
+        var http = new XMLHttpRequest();
+        var params = "awsaccesskeyid=" + data.data.awsaccesskeyid
+                + "&acl=" + data.data.acl
+                + "&key=" + data.data.key
+                + "&signature=" + data.data.signature
+                + "&policy=" + data.data.policy
+                + "&content-type=" + data.data.content-type
+                + "&file=" + data.data.file_name;
+        http.open("POST", file_server, true, access_token);
+
+        //Send the proper header information along with the request
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.setRequestHeader("Content-length", params.length);
+        http.setRequestHeader("Connection", "close");
+
+        http.onreadystatechange = function() {
+            if(http.status == 200 && http.readyState == 4) // OK
+                callback(data, null);
+            if(http.status == 401) // UNAUTHORIZED
+                callback(http.statusText, http.status);
+            if(http.status == 403) // FORBIDDEN
+                callback(http.statusText, http.status);
+            if(http.status > 500) // SERVER ERROR
+                callback(http.statusText, http.status);
+        };
+        http.send(params);
+    };
+
+    // Request authorization for uploading file
+    // If authorization is grant, upload the file
+    requestUploadAuthorization(path, mimetype, upload);
 }
 
 function setAccessToken(token) {
