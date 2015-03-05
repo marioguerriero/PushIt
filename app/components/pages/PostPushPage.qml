@@ -51,7 +51,16 @@ Page {
         TextField {
             id: titleField
             width: parent.width
+            visible: typeSelector.selectedIndex != 2
             placeholderText: i18n.tr("Title")
+        }
+
+        SingleValue {
+            id: fileSelector
+            width: parent.width
+            visible: typeSelector.selectedIndex == 2
+            text: i18n.tr("Select a file:")
+            value: ""
         }
 
         TextField {
@@ -64,7 +73,7 @@ Page {
         TextArea {
             id: bodyArea
             width: parent.width
-            placeholderText: typeSelector.selectedIndex == 1 ? i18n.tr("Description") : i18n.tr("Content")
+            placeholderText: i18n.tr("Message")
         }
     }
 
