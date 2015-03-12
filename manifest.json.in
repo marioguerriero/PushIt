@@ -1,0 +1,17 @@
+{
+    "name": "pushit.mefrio",
+    "description": "description of pushit",
+    "architecture": "@CLICK_ARCH@",
+    "title": "pushit",
+    "hooks": {
+        "pushit": {
+            "apparmor": "pushit/pushit.apparmor",
+            "desktop":  "pushit/pushit.desktop"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "Mario Guerriero <marioguerriero33@gmail.com>",
+    "framework" : "ubuntu-core-15.04"
+}
+
+

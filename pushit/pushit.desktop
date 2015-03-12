@@ -1,8 +1,7 @@
 [Desktop Entry]
 Name=app
 Exec=qmlscene $@ Main.qml
-Icon=pushit.png
+Icon=./pushit/pushit.png
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
-
