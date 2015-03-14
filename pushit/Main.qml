@@ -35,7 +35,7 @@ MainView {
     width: units.gu(100)
     height: units.gu(75)
 
-    backgroundColor: "#27AE60"
+    //backgroundColor: "#27AE60"
 
     PageStack {
         id: stack

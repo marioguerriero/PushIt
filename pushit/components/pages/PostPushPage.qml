@@ -45,7 +45,9 @@ Page {
         SingleValue {
             id: deviceSelector
             text: i18n.tr("To:")
-            value: i18n.tr("None")
+            value: i18n.tr("All")
+            property var deviceIden: null
+            onClicked: PopupUtils.open(Qt.resolvedUrl("../dialogs/DeviceSelectorDialog.qml"), deviceSelector);
         }
 
         TextField {
@@ -81,24 +83,29 @@ Page {
     function push(fileInfo) {
         var data = {};
 
+        // Type
         if(typeSelector.selectedIndex == 0) { // Note
             data = {    "type": "note",
                 "title": titleField.text,
-                "body": bodyArea.text };
+                "body": bodyArea.text,
+                "device_iden": deviceSelector.deviceIden};
         }
         else if(typeSelector.selectedIndex == 1) { // Link
             data = {    "type": "link",
                 "title": titleField.text,
                 "body": bodyArea.text,
-                "url": urlField.text };
+                "url": urlField.text,
+                "device_iden": deviceSelector.deviceIden};
         }
         else if(typeSelector.selectedIndex == 2) { // File
             data = {    "type": "file",
                 "file_name": fileInfo.file_name,
                 "file_type": fileInfo.file_type,
                 "file_url": fileInfo.file_url,
-                "body": bodyArea.text };
+                "body": bodyArea.text,
+                "device_iden": deviceSelector.deviceIden};
         }
+        console.log(JSON.stringify(data))
 
         var dialog = PopupUtils.open(Qt.resolvedUrl("../dialogs/LoadingDialog.qml"), root);
         var loadingFinished = function(data) {
