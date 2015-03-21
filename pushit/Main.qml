@@ -26,6 +26,7 @@ import "components/pages"
 import "js/Pushbullet.js" as Pushbullet
 
 MainView {
+    id: main
     objectName: "mainView"
     applicationName: "pushit.mefrio"
 
@@ -67,16 +68,10 @@ MainView {
         Component.onCompleted: init();
     }
 
-    Component.onCompleted: {
-        var token = settings.getSetting("token");
-        settings.setSetting("token", token);
-        if(token == null)
-            stack.push(authPage);
-        else
-            stack.push(tabs);
-        Pushbullet.setAccessToken(token);
+    function loadData() {
+        pushesPage.loading = true;
+        Pushbullet.getPushes(pushesPage.loadData);
 
-        // Start loading informations in background
         devicesPage.loading = true;
         Pushbullet.getDevices(devicesPage.loadData);
 
@@ -88,6 +83,20 @@ MainView {
 
         userPage.loading = true;
         Pushbullet.getUserInformations(userPage.loadData);
+    }
+
+    Component.onCompleted: {
+        var token = settings.getSetting("token");
+        if(token == null) {
+            stack.push(authPage);
+            return;
+        }
+        else
+            stack.push(tabs);
+        Pushbullet.setAccessToken(token);
+
+        // Start loading informations in background
+        loadData();
     }
 }
 

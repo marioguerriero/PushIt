@@ -22,6 +22,7 @@ import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 1.0
 import com.canonical.Oxide 1.0
 
+import "../../js/Pushbullet.js" as Pushbullet
 import "../../js/OAuth.js" as OAuth
 
 Page {
@@ -36,14 +37,15 @@ Page {
         preferences.localStorageEnabled: true
 
         onUrlChanged: {
-            console.log(url)
-            var token = OAuth.getAccessToken();
-            var error = OAuth.getAccessError(url);
+            var token = OAuth.getAccessToken(url.toString());
+            var error = OAuth.getAccessError();
             if(error == null && token != null) {
-                console.log(token);
+                console.log("Token aquired succefully");
                 settings.setSetting("token", token);
+                Pushbullet.setAccessToken(token);
                 stack.pop()
                 stack.push(tabs);
+                main.loadData();
             }
             if(error != null) {
                  PopupUtils.open(Qt.resolvedUrl("../dialogs/AuthFailedDialog.qml"), root);

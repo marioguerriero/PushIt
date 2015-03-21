@@ -17,17 +17,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 **/
 
-var client_id = "owRS2QJMR2nHusfdljRHzWeKM8HozK2z";
+var client_id = "jgYMK0ECO233wtziTCGYTjeis1nfCVdN";
 var accepted_uri = "https://www.pushbullet.com/login-success";
 var auth_link = "https://www.pushbullet.com/authorize?client_id=" + client_id +
-    "&redirect_uri=" + accepted_uri + "&response_type=token&scope=everything";
+    "&redirect_uri=" + encodeURI(accepted_uri) + "&response_type=token";
 
 function getAuthUri() {
     return auth_link;
 }
 
 function getAccessToken(uri) {
-    return getURLParameter(uri, "access_token");
+    var url = uri.replace("#", "&");
+    if(url.indexOf(accepted_uri) == -1) return null;
+    return getURLParameter(url, "access_token");
 }
 
 function getAccessError(uri) {

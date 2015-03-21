@@ -147,6 +147,8 @@ Page {
     }
 
     Component.onCompleted: {
+        if(settings.getSetting("token") == null) return;
+
         loading = true;
         loadingDialog = PopupUtils.open(Qt.resolvedUrl("../dialogs/LoadingDialog.qml"), root);
         Pushbullet.setAccessToken(settings.getSetting("token"));
