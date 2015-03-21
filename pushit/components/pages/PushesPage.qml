@@ -191,6 +191,9 @@ Page {
         }
 
         loading = false;
+
+        if(settings.getSetting("beta") && settings.getSetting("show_beta_message"))
+            PopupUtils.open(Qt.resolvedUrl("../dialogs/BetaWarningDialog.qml"));
     }
 
     tools: ToolbarItems {

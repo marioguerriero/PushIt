@@ -12,7 +12,8 @@ CONF_FILES +=  pushit.apparmor \
 
 OTHER_FILES += $${CONF_FILES} \
                $${QML_FILES} \
-    components/dialogs/DeviceSelectorDialog.qml
+    components/dialogs/DeviceSelectorDialog.qml \
+    components/dialogs/BetaWarningDialog.qml
 
 #specify where the qml/js files are installed to
 qml_files.path = /pushit

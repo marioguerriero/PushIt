@@ -37,7 +37,9 @@ Item {
         create: true
 
         defaults: {
-            token: ""
+            token: "";
+            beta: true;
+            show_beta_message: true;
         }
     }
 
@@ -46,6 +48,14 @@ Item {
         var value = getSetting("token");
         if(value === undefined) {
             setSetting("token", null);
+        }
+        value = getSetting("beta");
+        if(value === undefined) {
+            setSetting("beta", true);
+        }
+        value = getSetting("show_beta_message");
+        if(value === undefined) {
+            setSetting("show_beta_message", true);
         }
     }
 
