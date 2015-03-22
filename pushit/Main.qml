@@ -87,13 +87,14 @@ MainView {
     }
 
     Component.onCompleted: {
-        var token = settings.getSetting("token");
+        var token = null//settings.getSetting("token");
         if(token == null) {
             stack.push(authPage);
             return;
         }
         else
             stack.push(tabs);
+
         Pushbullet.setAccessToken(token);
 
         // Start loading informations in background

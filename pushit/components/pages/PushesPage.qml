@@ -169,6 +169,9 @@ Page {
 
         }
 
+        if(loadingDialog == null)
+            loadingDialog = PopupUtils.open(Qt.resolvedUrl("../dialogs/LoadingDialog.qml"), root);
+
         pbData.pushes = JSON.parse(data).pushes;
         pushes = pbData.pushes;
 

@@ -37,7 +37,7 @@ Item {
         create: true
 
         defaults: {
-            token: "";
+            token: null;
             beta: true;
             show_beta_message: true;
         }
