@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=app
-Exec=qmlscene $@ Main.qml
+Exec=qmlscene $@ pushit/Main.qml
 Icon=./pushit/pushit.png
 Terminal=false
 Type=Application
