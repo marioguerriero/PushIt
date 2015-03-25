@@ -87,7 +87,7 @@ MainView {
     }
 
     Component.onCompleted: {
-        var token = null//settings.getSetting("token");
+        var token = settings.getSetting("token");
         if(token == null) {
             stack.push(authPage);
             return;

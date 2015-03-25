@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-22 18:57+0100\n"
+"POT-Creation-Date: 2015-03-25 19:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,40 @@ msgstr ""
 msgid "Authenticate"
 msgstr ""
 
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/BetaWarningDialog.qml:27
+msgid "Welcome to Pushit BETA"
+msgstr ""
+
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/BetaWarningDialog.qml:28
+msgid ""
+"Thanks for using this BETA version of Pushit. It is still not complete and "
+"you may experience some features missing or some issues. Please report any "
+"of them so that you will help Pushit to become even better! Feel free to "
+"report any feature request."
+msgstr ""
+
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/BetaWarningDialog.qml:40
+msgid "Don't show this next time"
+msgstr ""
+
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/BetaWarningDialog.qml:49
+msgid "Report"
+msgstr ""
+
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/BetaWarningDialog.qml:56
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/NoteDialog.qml:51
+msgid "Close"
+msgstr ""
+
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/DeviceSelectorDialog.qml:27
+msgid "Select a Device"
+msgstr ""
+
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/DeviceSelectorDialog.qml:54
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:48
+msgid "All"
+msgstr ""
+
 #: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/LoadingDialog.qml:26
 msgid "Loading..."
 msgstr ""
@@ -44,10 +78,6 @@ msgstr ""
 
 #: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/NoteDialog.qml:46
 msgid "Share"
-msgstr ""
-
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/NoteDialog.qml:51
-msgid "Close"
 msgstr ""
 
 #: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/SubscribeDialog.qml:28
@@ -108,10 +138,6 @@ msgstr ""
 
 #: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:47
 msgid "To:"
-msgstr ""
-
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:48
-msgid "All"
 msgstr ""
 
 #: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:57
