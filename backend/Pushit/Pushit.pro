@@ -1,6 +1,6 @@
 TEMPLATE = lib
 TARGET = Pushitbackend
-QT += qml quick
+QT += qml quick network
 CONFIG += qt plugin
 
 load(ubuntu-click)
@@ -10,11 +10,11 @@ TARGET = $$qtLibraryTarget($$TARGET)
 # Input
 SOURCES += \
     backend.cpp \
-    File.cpp
+    FileUploader.cpp
 
 HEADERS += \
     backend.h \
-    File.h
+    FileUploader.h
 
 OTHER_FILES = qmldir
 

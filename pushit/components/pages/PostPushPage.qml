@@ -22,12 +22,18 @@ import Ubuntu.Components 1.1
 import Ubuntu.Components.ListItems 1.0
 import Ubuntu.Components.Popups 1.0
 
+import Pushit 1.0
+
 import "../../js/Pushbullet.js" as Pushbullet
 
 Page {
     id: root
     title: i18n.tr("Push")
     visible: false
+
+    FileUploader {
+        id: fileUploader
+    }
 
     Column {
         anchors.fill: parent
@@ -38,7 +44,7 @@ Page {
         ItemSelector {
             id: typeSelector
             text: i18n.tr("Type:")
-            model: [ i18n.tr("Note"), i18n.tr("Link")/*, i18n.tr("File")*/ ]
+            model: [ i18n.tr("Note"), i18n.tr("Link"), i18n.tr("File") ]
             expanded: true
         }
 
@@ -88,14 +94,16 @@ Page {
             data = {    "type": "note",
                 "title": titleField.text,
                 "body": bodyArea.text,
-                "device_iden": deviceSelector.deviceIden};
+                "device_iden": deviceSelector.deviceIden
+            };
         }
         else if(typeSelector.selectedIndex == 1) { // Link
             data = {    "type": "link",
                 "title": titleField.text,
                 "body": bodyArea.text,
                 "url": urlField.text,
-                "device_iden": deviceSelector.deviceIden};
+                "device_iden": deviceSelector.deviceIden
+            };
         }
         else if(typeSelector.selectedIndex == 2) { // File
             data = {    "type": "file",
@@ -103,7 +111,8 @@ Page {
                 "file_type": fileInfo.file_type,
                 "file_url": fileInfo.file_url,
                 "body": bodyArea.text,
-                "device_iden": deviceSelector.deviceIden};
+                "device_iden": deviceSelector.deviceIden
+            };
         }
         console.log(JSON.stringify(data))
 
@@ -125,10 +134,12 @@ Page {
                         push()
                     else {
                         var uploadComplete = function(fileInfo) {
+                            console.log("Info: " + fileInfo)
                             push(fileInfo);
                         };
 
-                        Pushbullet.uploadFile("path", "mimetype", uploadComplete);
+                        // Used for tests
+                        //Pushbullet.uploadFile("/home/mario/dev/c/sort.c", "text/plain", uploadComplete);
                     }
                 }
             }

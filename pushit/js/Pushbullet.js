@@ -71,19 +71,24 @@ function uploadFile(path, mimetype, callback) {
         }
 
         var http = new XMLHttpRequest();
-        var params = "awsaccesskeyid=" + data.data.awsaccesskeyid
-                + "&acl=" + data.data.acl
-                + "&key=" + data.data.key
-                + "&signature=" + data.data.signature
-                + "&policy=" + data.data.policy
-                + "&content-type=" + data.data.content-type
-                + "&file=" + data.data.file_name;
+        var json = JSON.parse(data);
+
+        var params = "";
+        var boundary = Math.random().toString().substr(2);
+        for(var key in json.data) {
+            params += "--" + boundary
+                    + "\r\nContent-Disposition: form-data; name=" + key
+                    + "\r\n\r\n" + json.data[key] + "\r\n";
+        }
+        params += "--" + boundary
+                + "\r\nContent-Disposition: form-data; name=" + "file"
+                + "\r\n\r\n@" + json.file_name + "\r\n";
+        params += "--" + boundary + "--\r\n";
+
         http.open("POST", file_server, true, access_token);
 
         //Send the proper header information along with the request
-        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        http.setRequestHeader("Content-length", params.length);
-        http.setRequestHeader("Connection", "close");
+        http.setRequestHeader("Content-type", "multipart/form-data; charset=utf-8; boundary=" + boundary);
 
         http.onreadystatechange = function() {
             if(http.status == 200 && http.readyState == 4) // OK
@@ -94,6 +99,7 @@ function uploadFile(path, mimetype, callback) {
                 callback(http.statusText, http.status);
             if(http.status > 500) // SERVER ERROR
                 callback(http.statusText, http.status);
+            console.log("Logging: " + http.status + " " + http.statusText)
         };
         http.send(params);
     };

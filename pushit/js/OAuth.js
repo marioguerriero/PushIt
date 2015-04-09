@@ -17,6 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 **/
 
+.pragma library
+
 var client_id = "jgYMK0ECO233wtziTCGYTjeis1nfCVdN";
 var accepted_uri = "https://www.pushbullet.com/login-success";
 var auth_link = "https://www.pushbullet.com/authorize?client_id=" + client_id +

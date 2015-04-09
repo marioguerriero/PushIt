@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-25 19:58+0100\n"
+"POT-Creation-Date: 2015-04-08 22:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,7 @@ msgid "Select a Device"
 msgstr ""
 
 #: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/DeviceSelectorDialog.qml:54
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:48
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:54
 msgid "All"
 msgstr ""
 
@@ -118,41 +118,45 @@ msgstr ""
 msgid "Devices"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:29
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:121
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:31
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:130
 #: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PushesPage.qml:205
 msgid "Push"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:40
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:46
 msgid "Type:"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:41
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:47
 msgid "Note"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:41
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:47
 msgid "Link"
 msgstr ""
 
 #: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:47
+msgid "File"
+msgstr ""
+
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:53
 msgid "To:"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:57
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:63
 msgid "Title"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:64
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:70
 msgid "Select a file:"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:71
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:77
 msgid "Url"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:78
+#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:84
 msgid "Message"
 msgstr ""
 

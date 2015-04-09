@@ -17,36 +17,51 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 **/
 
-#ifndef FILE_H
-#define FILE_H
+#ifndef FILEUPLOADER_H
+#define FILEUPLOADER_H
 
-#include <QObject>
-#include <QFile>
+#include<QObject>
+#include<QNetworkReply>
 
-class File : public QObject
+class FileUploader : public QObject
 {
     Q_OBJECT
     Q_PROPERTY( QString path READ path WRITE setPath NOTIFY pathChanged )
     Q_PROPERTY( QString mimeType READ mimeType )
 
 public:
-    explicit File(QObject *parent = 0);
-    ~File();
+    explicit FileUploader(QObject *parent = 0);
+    ~FileUploader();
+
+    void upload();
 
 Q_SIGNALS:
     void pathChanged();
+    void progressChanged();
+    void result();
+
+signals:
+    void uploadProgress(qint64,qint64);
+    void error(QNetworkReply::NetworkError);
+    void finished();
+
+public slots:
+    void onUploadProgress(qint64, qint64);
+    void onError(QNetworkReply::NetworkError);
+    void uploadFinished();
 
 protected:
-    QString path() { return mPath; }
+    QString path() { return *mPath; }
     void setPath(QString path);
 
     QString mimeType();
 
-    QString mPath;
-    QString mType;
+    QString *mPath;
 
-    QFile* mFile;
+private:
+    QString api = "https://s3.amazonaws.com/pushbullet-uploads";
+
+    QNetworkReply *reply;
 };
 
-#endif // FILE_H
-
+#endif // FILEUPLOADER_H

@@ -21,13 +21,13 @@
 #include <QtQml/QQmlContext>
 #include "backend.h"
 
-#include "File.h"
+#include "FileUploader.h"
 
 void BackendPlugin::registerTypes(const char *uri)
 {
     Q_ASSERT(uri == QLatin1String("Pushit"));
 
-    qmlRegisterType<File>(uri, 1, 0, "File");
+    qmlRegisterType<FileUploader>(uri, 1, 0, "FileUploader");
 }
 
 void BackendPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
