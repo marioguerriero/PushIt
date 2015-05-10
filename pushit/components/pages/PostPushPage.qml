@@ -124,25 +124,23 @@ Page {
         Pushbullet.push(data, loadingFinished);
     }
 
-    tools: ToolbarItems {
-        ToolbarButton {
-            action: Action {
-                text: i18n.tr("Push")
-                iconName: "save"
-                onTriggered: {
-                    if(typeSelector.selectedIndex != 2) // If not pushing a file
-                        push()
-                    else {
-                        var uploadComplete = function(fileInfo) {
-                            console.log("Info: " + fileInfo)
-                            push(fileInfo);
-                        };
+    head.actions: [
+        Action {
+            text: i18n.tr("Push")
+            iconName: "save"
+            onTriggered: {
+                if(typeSelector.selectedIndex != 2) // If not pushing a file
+                    push()
+                else {
+                    var uploadComplete = function(fileInfo) {
+                        console.log("Info: " + fileInfo)
+                        push(fileInfo);
+                    };
 
-                        // Used for tests
-                        //Pushbullet.uploadFile("/home/mario/dev/c/sort.c", "text/plain", uploadComplete);
-                    }
+                    // Used for tests
+                    //Pushbullet.uploadFile("/home/mario/dev/c/sort.c", "text/plain", uploadComplete);
                 }
             }
         }
-    }
+    ]
 }

@@ -118,13 +118,10 @@ Page {
         Pushbullet.getSubscriptions(loadData);
     }
 
-    tools: ToolbarItems {
-        ToolbarButton {
-            action: Action {
-                text: i18n.tr("Subscribe")
-                iconName: "add"
-                onTriggered: PopupUtils.open(Qt.resolvedUrl("../dialogs/SubscribeDialog.qml"), root);
-            }
+    head.actions: [Action {
+            text: i18n.tr("Subscribe")
+            iconName: "add"
+            onTriggered: PopupUtils.open(Qt.resolvedUrl("../dialogs/SubscribeDialog.qml"), root);
         }
-    }
+    ]
 }

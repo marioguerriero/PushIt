@@ -49,6 +49,11 @@ Page {
         clip: true
         visible: !emptyLabel.visible
 
+        PullToRefresh {
+            refreshing: loading
+            onRefresh: reload()
+        }
+
         delegate: Expandable {
             id: item
             collapseOnClick: true
@@ -199,13 +204,11 @@ Page {
             PopupUtils.open(Qt.resolvedUrl("../dialogs/BetaWarningDialog.qml"));
     }
 
-    tools: ToolbarItems {
-        ToolbarButton {
-            action: Action {
-                text: i18n.tr("Push")
-                iconName: "compose"
-                onTriggered: stack.push(postPushPage)
-            }
+    head.actions: [
+        Action {
+            text: i18n.tr("Push")
+            iconName: "compose"
+            onTriggered: stack.push(postPushPage)
         }
-    }
+    ]
 }

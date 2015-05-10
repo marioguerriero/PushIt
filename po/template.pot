@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 22:20+0200\n"
+"POT-Creation-Date: 2015-05-10 15:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,24 +17,24 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/AuthFailedDialog.qml:26
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/AuthFailedDialog.qml:26
 msgid "Authentication failed"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/AuthFailedDialog.qml:27
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/AuthFailedDialog.qml:27
 msgid ""
 "You need to authenticate to continue using PushIt. Please authenticate now."
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/AuthFailedDialog.qml:30
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/AuthFailedDialog.qml:30
 msgid "Authenticate"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/BetaWarningDialog.qml:27
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/BetaWarningDialog.qml:27
 msgid "Welcome to Pushit BETA"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/BetaWarningDialog.qml:28
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/BetaWarningDialog.qml:28
 msgid ""
 "Thanks for using this BETA version of Pushit. It is still not complete and "
 "you may experience some features missing or some issues. Please report any "
@@ -42,140 +42,140 @@ msgid ""
 "report any feature request."
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/BetaWarningDialog.qml:40
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/BetaWarningDialog.qml:40
 msgid "Don't show this next time"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/BetaWarningDialog.qml:49
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/BetaWarningDialog.qml:49
 msgid "Report"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/BetaWarningDialog.qml:56
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/NoteDialog.qml:51
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/BetaWarningDialog.qml:56
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/NoteDialog.qml:51
 msgid "Close"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/DeviceSelectorDialog.qml:27
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/DeviceSelectorDialog.qml:27
 msgid "Select a Device"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/DeviceSelectorDialog.qml:54
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:54
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/DeviceSelectorDialog.qml:54
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:54
 msgid "All"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/LoadingDialog.qml:26
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/LoadingDialog.qml:26
 msgid "Loading..."
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/LoadingDialog.qml:27
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/LoadingDialog.qml:27
 msgid "Please hang on a moment"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/NoteDialog.qml:41
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/NoteDialog.qml:41
 msgid "Delete"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/NoteDialog.qml:46
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/NoteDialog.qml:46
 msgid "Share"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/SubscribeDialog.qml:28
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/SubscribeDialog.qml:28
 msgid "New Subscription"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/SubscribeDialog.qml:29
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/SubscribeDialog.qml:29
 msgid "Please insert channel id"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/SubscribeDialog.qml:32
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/SubscribeDialog.qml:32
 msgid "Looking for channels?"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/SubscribeDialog.qml:47
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/SubscribeDialog.qml:47
 msgid "Cancel"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/dialogs/SubscribeDialog.qml:52
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/SubscriptionsPage.qml:124
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/dialogs/SubscribeDialog.qml:52
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/SubscriptionsPage.qml:122
 msgid "Subscribe"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/AuthPage.qml:30
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/AuthPage.qml:30
 msgid "Authentication"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/ContactsPage.qml:27
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/ContactsPage.qml:27
 msgid "Contacts"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/ContactsPage.qml:66
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/DevicesPage.qml:67
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/ContactsPage.qml:66
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/DevicesPage.qml:67
 msgid "No Contacts"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/DevicesPage.qml:27
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/DevicesPage.qml:27
 msgid "Devices"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:31
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:130
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PushesPage.qml:205
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:31
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:129
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PushesPage.qml:209
 msgid "Push"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:46
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:46
 msgid "Type:"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:47
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:47
 msgid "Note"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:47
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:47
 msgid "Link"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:47
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:47
 msgid "File"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:53
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:53
 msgid "To:"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:63
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:63
 msgid "Title"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:70
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:70
 msgid "Select a file:"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:77
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:77
 msgid "Url"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PostPushPage.qml:84
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:84
 msgid "Message"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PushesPage.qml:29
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PushesPage.qml:29
 msgid "Pushes"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PushesPage.qml:92
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PushesPage.qml:97
 msgid "Untitled"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/PushesPage.qml:146
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PushesPage.qml:151
 msgid "No Pushes"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/SubscriptionsPage.qml:29
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/SubscriptionsPage.qml:29
 msgid "Subscriptions"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/pushbullet/pushit/components/pages/SubscriptionsPage.qml:89
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/SubscriptionsPage.qml:89
 msgid "No Subscriptions"
 msgstr ""
