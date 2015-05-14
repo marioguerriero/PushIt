@@ -152,6 +152,8 @@ Page {
     }
 
     Component.onCompleted: {
+        if(stack.currentPage != root) return;
+
         if(settings.getSetting("token") == null) return;
 
         loading = true;

@@ -37,7 +37,7 @@ MainView {
     width: units.gu(100)
     height: units.gu(75)
 
-    //backgroundColor: "#27AE60"
+    backgroundColor: "#27AE60"
 
     PageStack {
         id: stack
@@ -57,6 +57,8 @@ MainView {
         ChannelPage { id: channelPage }
 
         AuthPage { id: authPage }
+
+        Page { id: walkthroughPage; WalkthroughPage { anchors.fill: parent } }
     }
 
     Data {
@@ -87,6 +89,14 @@ MainView {
     }
 
     Component.onCompleted: {
+        // Show walkthrough page
+        var walkthrough = settings.getSetting("walkthrough");
+        if(!walkthrough) {
+            stack.push(walkthroughPage);
+            return;
+        }
+
+        // Aquire token
         var token = settings.getSetting("token");
         if(token == null) {
             stack.push(authPage);

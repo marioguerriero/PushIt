@@ -138,7 +138,16 @@ Page {
                     };
 
                     // Used for tests
-                    //Pushbullet.uploadFile("/home/mario/dev/c/sort.c", "text/plain", uploadComplete);
+                    Pushbullet.uploadFile("/home/mario/dev/c/fibo.c", "text/plain", uploadComplete);
+
+                    var http = new XMLHttpRequest();
+                    http.open("GET", "file://" + "/home/mario/dev/c/fibo.c");
+
+                    //Send the proper header information along with the request
+                    http.onreadystatechange = function() {
+                        console.log(http.responseText)
+                    }
+                    http.send(null);
                 }
             }
         }

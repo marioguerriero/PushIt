@@ -26,7 +26,8 @@ OTHER_FILES += $${QML_FILES} \
                $${DIALOGS_FILES} \
                $${PAGES_FILES} \
                $${JS_FILES} \
-               $${CONF_FILES}
+               $${CONF_FILES} \
+    components/Slide2.qml
 
 #specify where the qml/js files are installed to
 qml_files.path = /pushit
