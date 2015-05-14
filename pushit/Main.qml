@@ -58,7 +58,7 @@ MainView {
 
         AuthPage { id: authPage }
 
-        Page { id: walkthroughPage; WalkthroughPage { anchors.fill: parent } }
+        WalkthroughPage { id: walkthroughPage }
     }
 
     Data {
@@ -69,6 +69,11 @@ MainView {
         id: settings
 
         Component.onCompleted: init();
+    }
+
+    function loadToken() {
+        var token = settings.getSetting("token");
+        Pushbullet.setAccessToken(token);
     }
 
     function loadData() {
@@ -90,8 +95,8 @@ MainView {
 
     Component.onCompleted: {
         // Show walkthrough page
-        var walkthrough = settings.getSetting("walkthrough");
-        if(!walkthrough) {
+        var showWalkthrough = settings.getSetting("show-walkthrough");
+        if(showWalkthrough) {
             stack.push(walkthroughPage);
             return;
         }
@@ -109,6 +114,10 @@ MainView {
 
         // Start loading informations in background
         loadData();
+
+        // Show beta warning message
+        if(settings.getSetting("beta") && settings.getSetting("show_beta_message"))
+            PopupUtils.open(Qt.resolvedUrl("./dialogs/BetaWarningDialog.qml"));
     }
 }
 

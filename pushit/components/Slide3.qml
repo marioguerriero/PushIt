@@ -21,7 +21,6 @@ import Ubuntu.Components 1.1
 
 Component {
     id: slide3
-
     Item {
         id: slide3Container
 
@@ -74,6 +73,7 @@ Component {
                     color: "orange"
                     height: units.gu(5)
                     width: units.gu(18)
+                    enabled: logged
                     text: i18n.tr("Create Device")
                 }
 

@@ -44,6 +44,7 @@ Component {
                 color: "white"
                 height: units.gu(5)
                 width: units.gu(25)
+                enabled: logged
                 text: i18n.tr("Start using ") + appName
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: finished()

@@ -50,7 +50,7 @@ Component {
 
             Label {
                 id: body
-                text: i18n.tr("To start using Pushit you need to log in your Pushbullet account.\n\nIf you don't have one you can easily create it now.")
+                text: i18n.tr("To start using Pushit you need to log in your Pushbullet account.\n\nYou can use one of your social account to log in Pushbullet,\nthere is no need for additional subscriptions.")
                 width: parent.width
                 wrapMode: Text.WordWrap
                 font.pixelSize: units.dp(17)
@@ -70,17 +70,18 @@ Component {
                     width: units.gu(18)
                     text: i18n.tr("Log in")
                     color: "white"
-                    onClicked: undefined
-                }
-                
-                Button {
-                    color: "orange"
-                    height: units.gu(5)
-                    width: units.gu(18)
-                    text: i18n.tr("Create Account")
-                    onClicked: undefined
+                    onClicked: {
+                        authPage.success.connect(onLogIn);
+                        stack.push(authPage);
+                    }
                 }
             }
+        }
+
+        function onLogIn() {
+            logged = true;
+            stack.pop();
+            walkthrough.next();
         }
     }
 }

@@ -23,12 +23,18 @@ import ".."
 // Initial Walkthrough tutorial
 Walkthrough {
     id: walkthrough
+    anchors.fill: parent
+    visible: false
 
     appName: "Pushit"
+    property bool logged: false
 
     onFinished: {
         stack.pop();
         stack.push(tabs);
+        main.loadToken();
+        main.loadData();
+        settings.setSetting("show-walkthrough", false);
     }
 
     model: [

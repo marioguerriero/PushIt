@@ -152,7 +152,7 @@ Page {
     }
 
     Component.onCompleted: {
-        if(stack.currentPage != root) return;
+        if(settings.getSetting("show-walkthrough")) return;
 
         if(settings.getSetting("token") == null) return;
 
@@ -176,8 +176,10 @@ Page {
 
         }
 
-        if(loadingDialog == null)
+        if(loadingDialog == null || !loading) {
             loadingDialog = PopupUtils.open(Qt.resolvedUrl("../dialogs/LoadingDialog.qml"), root);
+            loading = true;
+        }
 
         pbData.pushes = JSON.parse(data).pushes;
         pushes = pbData.pushes;
@@ -201,9 +203,7 @@ Page {
         }
 
         loading = false;
-
-        if(settings.getSetting("beta") && settings.getSetting("show_beta_message"))
-            PopupUtils.open(Qt.resolvedUrl("../dialogs/BetaWarningDialog.qml"));
+        loadingDialog = null;
     }
 
     head.actions: [

@@ -50,6 +50,7 @@ Dialog {
 
     Button {
         text: i18n.tr("Subscribe")
+        color: "orange"
         onClicked: {
             var subscriptionSuccess = function() {
                 PopupUtils.close(root);

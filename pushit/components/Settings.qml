@@ -37,7 +37,7 @@ Item {
         create: true
 
         defaults: {
-            walkthrough: false
+            show_walkthrough: false
             token: null;
             beta: true;
             show_beta_message: true;

@@ -30,6 +30,9 @@ Page {
     title: i18n.tr("Authentication")
     visible: false;
 
+    signal success
+    signal error
+
     WebView  {
         id: webView
         anchors.fill: parent
@@ -43,18 +46,21 @@ Page {
                 console.log("Token aquired succefully");
                 settings.setSetting("token", token);
                 Pushbullet.setAccessToken(token);
-                stack.pop()
-                stack.push(tabs);
-                main.loadData();
+                success();
             }
             if(error != null) {
-                 PopupUtils.open(Qt.resolvedUrl("../dialogs/AuthFailedDialog.qml"), root);
+                PopupUtils.open(Qt.resolvedUrl("../dialogs/AuthFailedDialog.qml"), root);
+                error();
             }
         }
     }
 
     onVisibleChanged: {
         if(visible) reload();
+    }
+
+    onError: {
+        stack.pop();
     }
 
     function reload() {

@@ -37,7 +37,7 @@ Page {
 
     // Disable automatic orientation during walkthough and enable it after the walkthrough.
     Component.onCompleted: main.automaticOrientation = false
-    Component.onDestruction: mainView.automaticOrientation = true
+    Component.onDestruction: main.automaticOrientation = true
 
     // ListView to show the slides
     ListView {
@@ -104,5 +104,13 @@ Page {
                 }
             }
         }
+    }
+
+    function next() {
+        listView.currentIndex++;
+    }
+
+    function previous() {
+        listView.currentIndex--;
     }
 }

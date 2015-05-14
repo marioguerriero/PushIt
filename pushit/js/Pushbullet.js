@@ -188,7 +188,7 @@ function deleteAllPushes(callback) {
     http.send(null);
 }
 
-function getPushes(modified_after, active, callback) {
+function getPushes(callback) {
     if(access_token == null) {
         console.log("WARNING: access_token not set");
         return;
