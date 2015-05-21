@@ -166,10 +166,6 @@ Page {
             }
         }
     }
-    Scrollbar {
-        flickableItem: list
-        align: Qt.AlignTrailing
-    }
 
     Label {
         id: emptyLabel
