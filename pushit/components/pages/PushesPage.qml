@@ -18,7 +18,7 @@
 **/
 
 import QtQuick 2.2
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.2
 import Ubuntu.Components.ListItems 1.0
 import Ubuntu.Components.Popups 1.0
 
@@ -49,38 +49,62 @@ Page {
         clip: true
         visible: !emptyLabel.visible
 
+        property int selectedItem: -1
+
         PullToRefresh {
             refreshing: loading
             onRefresh: reload()
         }
 
-        delegate: Expandable {
+        delegate: ListItem {
             id: item
-            collapseOnClick: true
-            expandedHeight: contentColumn.height + units.gu(1)
-            removable: true
-            confirmRemoval: true
-
-            onClicked: {
-                list.expandedIndex = index;
+            height: expanded ? contentColumn.height + units.gu(1) : collapsedHeight
+            contentItem.anchors {
+                leftMargin: units.gu(2)
+                rightMargin: units.gu(2)
+                topMargin: units.gu(0.5)
+                bottomMargin: units.gu(0.5)
             }
 
-            onItemRemoved: {
-                Pushbullet.deletePush(iden);
+            property var collapsedHeight: units.gu(7)
+            property bool expanded: false
+
+            // Trailing and leading actions
+            trailingActions: ListItemActions {
+                actions: [
+                    Action {
+                        iconName: "share"
+                    }
+                ]
+            }
+            leadingActions: ListItemActions {
+                actions: [
+                    Action {
+                        iconName: "delete"
+                        onTriggered: {
+                            Pushbullet.deletePush(iden);
+                        }
+                    }
+                ]
+            }
+
+            onClicked: {
+                expanded = !expanded;
             }
 
             Column {
                 id: contentColumn
+                height: root.height / 2
                 anchors { left: parent.left; right: parent.right }
                 Item {
                     anchors { left: parent.left; right: parent.right}
                     height: item.expanded ? item.collapsedHeight + units.gu(3) : item.collapsedHeight
                     Row {
-                        anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter }
+                        anchors { left: parent.left; right: parent.right; /*verticalCenter: parent.verticalCenter*/ }
                         spacing: units.gu(1)
                         UbuntuShape {
                             id: iconShape
-                            height: item.expanded ? units.gu(8) : units.gu(5)
+                            height: item.expanded ? units.gu(10) : units.gu(6)
                             width: height
                             anchors.verticalCenter: parent.verticalCenter
                             image: Image {
@@ -141,6 +165,10 @@ Page {
                 }
             }
         }
+    }
+    Scrollbar {
+        flickableItem: list
+        align: Qt.AlignTrailing
     }
 
     Label {

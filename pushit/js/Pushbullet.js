@@ -195,8 +195,8 @@ function getPushes(callback) {
     }
 
     var http = new XMLHttpRequest();
-    var params = "modified_after=" + modified_after;
-    if(active == true) params += "&active";
+    var params = "modified_after=0";
+    params += "&active";
     http.open("GET", api + pushes, true, access_token);
 
     http.onreadystatechange = function() {

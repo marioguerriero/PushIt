@@ -18,7 +18,7 @@
 **/
 
 import QtQuick 2.2
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.2
 import Ubuntu.Components.Popups 1.0
 
 import "components"
@@ -30,9 +30,6 @@ MainView {
     id: main
     objectName: "mainView"
     applicationName: "pushit.mefrio"
-
-    // Removes the old toolbar and enables new features of the new header.
-    useDeprecatedToolbar: false
 
     width: units.gu(100)
     height: units.gu(75)
