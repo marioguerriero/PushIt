@@ -69,6 +69,8 @@ Page {
             property var collapsedHeight: units.gu(7)
             property bool expanded: false
 
+            Behavior on height { UbuntuNumberAnimation { duration: UbuntuAnimation.SlowDuration } }
+
             // Trailing and leading actions
             trailingActions: ListItemActions {
                 actions: [
@@ -105,13 +107,15 @@ Page {
                         UbuntuShape {
                             id: iconShape
                             height: item.expanded ? units.gu(10) : units.gu(6)
-                            width: height
+                            width: item.expanded ? units.gu(10) : units.gu(6)
                             anchors.verticalCenter: parent.verticalCenter
                             image: Image {
                                 anchors.fill: parent
                                 source: pbData.getIconSourceFromIden(sender_iden ? sender_iden : channel_iden)
                                 onSourceChanged: console.log(source)
                             }
+                            Behavior on height { UbuntuNumberAnimation { duration: UbuntuAnimation.SlowDuration } }
+                            Behavior on width { UbuntuNumberAnimation { duration: UbuntuAnimation.SlowDuration } }
                         }
 
                         Label {
