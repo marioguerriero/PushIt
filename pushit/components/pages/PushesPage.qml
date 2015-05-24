@@ -102,7 +102,7 @@ Page {
                     anchors { left: parent.left; right: parent.right}
                     height: item.expanded ? item.collapsedHeight + units.gu(3) : item.collapsedHeight
                     Row {
-                        anchors { left: parent.left; right: parent.right; /*verticalCenter: parent.verticalCenter*/ }
+                        anchors { left: parent.left; right: parent.right;  }
                         spacing: units.gu(1)
                         UbuntuShape {
                             id: iconShape
@@ -112,7 +112,6 @@ Page {
                             image: Image {
                                 anchors.fill: parent
                                 source: pbData.getIconSourceFromIden(sender_iden ? sender_iden : channel_iden)
-                                onSourceChanged: console.log(source)
                             }
                             Behavior on height { UbuntuNumberAnimation { duration: UbuntuAnimation.SlowDuration } }
                             Behavior on width { UbuntuNumberAnimation { duration: UbuntuAnimation.SlowDuration } }
@@ -132,13 +131,38 @@ Page {
                 }
 
                 Label {
-                    anchors { left: parent.left; right: parent.right }
+                    anchors { left: parent.left; }
                     text: {
                         if(type == "note" || type == "link") return body ? body : "";
                         return "";
                     }
                     visible: type != "file"
                     wrapMode: Text.WordWrap
+                }
+
+                UbuntuShape {
+                    visible: type == "file"
+                    height: contentColumn.height * 0.7
+                    width: contentColumn.width * 0.5
+                    color: file_type == "image/jpeg" ? "transparent" : "white"
+                    anchors.topMargin: units.gu(1)
+                    image: Image {
+                        id: img
+                        anchors.fill: parent
+                        visible: file_type == "image/jpeg"
+                        source: file_url
+                    }
+                    Button {
+                        anchors.fill: parent
+                        visible: !img.visible
+                        iconName: "document-save"
+                        text: file_name
+                        color: "white"
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: Qt.openUrlExternally(file_url);
+                    }
                 }
 
                 Label {
@@ -226,7 +250,10 @@ Page {
                              "dismissed":   push.dismissed,
                              "sender_iden": push.sender_iden,
                              "channel_iden":push.channel_iden,
-                             "sender_email":push.sender_email
+                             "sender_email":push.sender_email,
+                             "file_name":   push.file_name,
+                             "file_type":   push.file_type,
+                             "file_url":    push.file_url
                          });
         }
 
