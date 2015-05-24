@@ -151,6 +151,7 @@ Page {
                         anchors.fill: parent
                         visible: file_type == "image/jpeg"
                         source: file_url
+                        fillMode: Image.PreserveAspectCrop
                     }
                     Button {
                         anchors.fill: parent

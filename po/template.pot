@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-24 19:43+0200\n"
+"POT-Creation-Date: 2015-05-24 19:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,7 +120,7 @@ msgstr ""
 
 #: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:31
 #: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:129
-#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PushesPage.qml:266
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PushesPage.qml:267
 msgid "Push"
 msgstr ""
 
@@ -168,7 +168,7 @@ msgstr ""
 msgid "Untitled"
 msgstr ""
 
-#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PushesPage.qml:203
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PushesPage.qml:204
 msgid "No Pushes"
 msgstr ""
 
