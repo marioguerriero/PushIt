@@ -241,6 +241,27 @@ function addDevice(data, callback) {
         console.log("WARNING: access_token not set");
         return;
     }
+
+    var http = new XMLHttpRequest();
+    var params = "nickname=" + data.nickname + "&type=" + data.type;
+    http.open("POST", api + devices, true, access_token);
+
+    //Send the proper header information along with the request
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.setRequestHeader("Content-length", params.length);
+    http.setRequestHeader("Connection", "close");
+
+    http.onreadystatechange = function() {
+        if(http.status == 200 && http.readyState == 4) // OK
+            callback(http.responseText, null);
+        if(http.status == 401) // UNAUTHORIZED
+            callback(http.statusText, http.status);
+        if(http.status == 403) // FORBIDDEN
+            callback(http.statusText, http.status);
+        if(http.status > 500) // SERVER ERROR
+            callback(http.statusText, http.status);
+    };
+    http.send(params);
 }
 
 function deleteDevice(iden, callback) {
