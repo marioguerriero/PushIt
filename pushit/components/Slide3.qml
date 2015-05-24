@@ -17,7 +17,10 @@
  */
 
 import QtQuick 2.3
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.2
+import Ubuntu.Components.Popups 1.0
+
+import "../js/Pushbullet.js" as Pushbullet
 
 Component {
     id: slide3
@@ -40,7 +43,7 @@ Component {
 
             Image {
                 id: smileImage
-                height: parent.height - introductionText.height - finalMessage.contentHeight - 4.5*mainColumn.spacing
+                height: parent.height - introductionText.height - finalMessage.contentHeight - 4.4*mainColumn.spacing
                 fillMode: Image.PreserveAspectFit
                 source: Qt.resolvedUrl("../../data/ubuntu-logo.png")
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -75,6 +78,16 @@ Component {
                     width: units.gu(18)
                     enabled: logged
                     text: i18n.tr("Create Device")
+                    onClicked: {
+                        var dialog = PopupUtils.open(Qt.resolvedUrl("../dialogs/LoadingDialog.qml"), main);
+
+                        var loading = function(data, error) {
+                            PopupUtils.close(dialog);
+                        };
+
+                        var data = { "nickname": deviceNameField.text, "type": "stream" };
+                        Pushbullet.addDevice(data);
+                    }
                 }
 
             }
