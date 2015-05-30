@@ -144,12 +144,12 @@ Page {
                     visible: type == "file"
                     height: contentColumn.height * 0.7
                     width: contentColumn.width * 0.5
-                    color: file_type == "image/jpeg" ? "transparent" : "white"
+                    color: file_type.indexOf("image") > -1 ? "transparent" : "white"
                     anchors.topMargin: units.gu(1)
                     image: Image {
                         id: img
                         anchors.fill: parent
-                        visible: file_type == "image/jpeg"
+                        visible: file_type.indexOf("image") > -1
                         source: file_url
                         fillMode: Image.PreserveAspectCrop
                     }
@@ -256,6 +256,7 @@ Page {
                              "file_type":   push.file_type,
                              "file_url":    push.file_url
                          });
+            console.log(push.file_type)
         }
 
         loading = false;

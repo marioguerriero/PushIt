@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-24 20:01+0200\n"
+"POT-Creation-Date: 2015-05-30 13:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,7 +120,7 @@ msgstr ""
 
 #: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:31
 #: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:129
-#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PushesPage.qml:267
+#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PushesPage.qml:268
 msgid "Push"
 msgstr ""
 
@@ -134,10 +134,6 @@ msgstr ""
 
 #: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:47
 msgid "Link"
-msgstr ""
-
-#: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:47
-msgid "File"
 msgstr ""
 
 #: /home/mario/dev/ubuntu/PushIt/pushit/components/pages/PostPushPage.qml:53

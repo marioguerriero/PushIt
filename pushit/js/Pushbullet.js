@@ -244,6 +244,7 @@ function addDevice(data, callback) {
 
     var http = new XMLHttpRequest();
     var params = "nickname=" + data.nickname + "&type=" + data.type;
+    console.log(data)
     http.open("POST", api + devices, true, access_token);
 
     //Send the proper header information along with the request

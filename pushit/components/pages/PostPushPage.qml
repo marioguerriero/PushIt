@@ -44,7 +44,7 @@ Page {
         ItemSelector {
             id: typeSelector
             text: i18n.tr("Type:")
-            model: [ i18n.tr("Note"), i18n.tr("Link"), i18n.tr("File") ]
+            model: [ i18n.tr("Note"), i18n.tr("Link")/*, i18n.tr("File")*/ ]
             expanded: true
         }
 

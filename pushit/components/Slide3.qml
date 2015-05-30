@@ -79,14 +79,15 @@ Component {
                     enabled: logged
                     text: i18n.tr("Create Device")
                     onClicked: {
-                        var dialog = PopupUtils.open(Qt.resolvedUrl("../dialogs/LoadingDialog.qml"), main);
+                        var dialog = PopupUtils.open(Qt.resolvedUrl("dialogs/LoadingDialog.qml"), main);
 
-                        var loading = function(data, error) {
+                        var onLoad = function(data, error) {
                             PopupUtils.close(dialog);
+                            walkthrough.next();
                         };
 
-                        var data = { "nickname": deviceNameField.text, "type": "stream" };
-                        Pushbullet.addDevice(data);
+                        var data = { "nickname": deviceNameField.text, "type": "ubuntu" };
+                        Pushbullet.addDevice(data, onLoad);
                     }
                 }
 

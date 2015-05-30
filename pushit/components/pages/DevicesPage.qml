@@ -77,6 +77,7 @@ Page {
 
         for(var n = 0; n < devices.length; n++) {
             var device = devices[n];
+            if(!device.active) continue;
             model.append({  "iden":         device.iden,
                              "push_token":  device.push_toekn,
                              "app_version": device.app_version,
