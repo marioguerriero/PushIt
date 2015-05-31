@@ -22,18 +22,12 @@ import Ubuntu.Components 1.1
 import Ubuntu.Components.ListItems 1.0
 import Ubuntu.Components.Popups 1.0
 
-import Pushit 1.0
-
 import "../../js/Pushbullet.js" as Pushbullet
 
 Page {
     id: root
     title: i18n.tr("Push")
     visible: false
-
-    FileUploader {
-        id: fileUploader
-    }
 
     Column {
         anchors.fill: parent

@@ -256,7 +256,6 @@ Page {
                              "file_type":   push.file_type,
                              "file_url":    push.file_url
                          });
-            console.log(push.file_type)
         }
 
         loading = false;

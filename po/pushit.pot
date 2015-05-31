@@ -1,0 +1,252 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-31 11:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Main.qml:28
+msgid "Simple"
+msgstr ""
+
+#: Main.qml:41
+msgid "Hello.."
+msgstr ""
+
+#: Main.qml:48
+msgid "Tap me!"
+msgstr ""
+
+#: Main.qml:51
+msgid "..world!"
+msgstr ""
+
+#: pushit/components/dialogs/AuthFailedDialog.qml:26
+msgid "Authentication failed"
+msgstr ""
+
+#: pushit/components/dialogs/AuthFailedDialog.qml:27
+msgid ""
+"You need to authenticate to continue using PushIt. Please authenticate now."
+msgstr ""
+
+#: pushit/components/dialogs/AuthFailedDialog.qml:30
+msgid "Authenticate"
+msgstr ""
+
+#: pushit/components/dialogs/BetaWarningDialog.qml:27
+msgid "Welcome to Pushit BETA"
+msgstr ""
+
+#: pushit/components/dialogs/BetaWarningDialog.qml:28
+msgid ""
+"Thanks for using this BETA version of Pushit. It is still not complete and "
+"you may experience some features missing or some issues. Please report any "
+"of them so that you will help Pushit to become even better! Feel free to "
+"report any feature request."
+msgstr ""
+
+#: pushit/components/dialogs/BetaWarningDialog.qml:40
+msgid "Don't show this next time"
+msgstr ""
+
+#: pushit/components/dialogs/BetaWarningDialog.qml:49
+msgid "Report"
+msgstr ""
+
+#: pushit/components/dialogs/BetaWarningDialog.qml:56
+#: pushit/components/dialogs/NoteDialog.qml:51
+msgid "Close"
+msgstr ""
+
+#: pushit/components/dialogs/DeviceSelectorDialog.qml:27
+msgid "Select a Device"
+msgstr ""
+
+#: pushit/components/dialogs/DeviceSelectorDialog.qml:54
+#: pushit/components/pages/PostPushPage.qml:48
+msgid "All"
+msgstr ""
+
+#: pushit/components/dialogs/LoadingDialog.qml:26
+msgid "Loading..."
+msgstr ""
+
+#: pushit/components/dialogs/LoadingDialog.qml:27
+msgid "Please hang on a moment"
+msgstr ""
+
+#: pushit/components/dialogs/NoteDialog.qml:41
+msgid "Delete"
+msgstr ""
+
+#: pushit/components/dialogs/NoteDialog.qml:46
+msgid "Share"
+msgstr ""
+
+#: pushit/components/dialogs/SubscribeDialog.qml:28
+msgid "New Subscription"
+msgstr ""
+
+#: pushit/components/dialogs/SubscribeDialog.qml:29
+msgid "Please insert channel id"
+msgstr ""
+
+#: pushit/components/dialogs/SubscribeDialog.qml:32
+msgid "Looking for channels?"
+msgstr ""
+
+#: pushit/components/dialogs/SubscribeDialog.qml:47
+msgid "Cancel"
+msgstr ""
+
+#: pushit/components/dialogs/SubscribeDialog.qml:52
+#: pushit/components/pages/SubscriptionsPage.qml:122
+msgid "Subscribe"
+msgstr ""
+
+#: pushit/components/pages/ContactsPage.qml:27
+msgid "Contacts"
+msgstr ""
+
+#: pushit/components/pages/ContactsPage.qml:66
+#: pushit/components/pages/DevicesPage.qml:67
+msgid "No Contacts"
+msgstr ""
+
+#: pushit/components/pages/SubscriptionsPage.qml:29
+msgid "Subscriptions"
+msgstr ""
+
+#: pushit/components/pages/SubscriptionsPage.qml:89
+msgid "No Subscriptions"
+msgstr ""
+
+#: pushit/components/pages/AuthPage.qml:30
+msgid "Authentication"
+msgstr ""
+
+#: pushit/components/pages/DevicesPage.qml:27
+msgid "Devices"
+msgstr ""
+
+#: pushit/components/pages/PostPushPage.qml:29
+#: pushit/components/pages/PostPushPage.qml:123
+#: pushit/components/pages/PushesPage.qml:267
+msgid "Push"
+msgstr ""
+
+#: pushit/components/pages/PostPushPage.qml:40
+msgid "Type:"
+msgstr ""
+
+#: pushit/components/pages/PostPushPage.qml:41
+msgid "Note"
+msgstr ""
+
+#: pushit/components/pages/PostPushPage.qml:41
+msgid "Link"
+msgstr ""
+
+#: pushit/components/pages/PostPushPage.qml:47
+msgid "To:"
+msgstr ""
+
+#: pushit/components/pages/PostPushPage.qml:57
+msgid "Title"
+msgstr ""
+
+#: pushit/components/pages/PostPushPage.qml:64
+msgid "Select a file:"
+msgstr ""
+
+#: pushit/components/pages/PostPushPage.qml:71
+msgid "Url"
+msgstr ""
+
+#: pushit/components/pages/PostPushPage.qml:78
+msgid "Message"
+msgstr ""
+
+#: pushit/components/pages/PushesPage.qml:29
+msgid "Pushes"
+msgstr ""
+
+#: pushit/components/pages/PushesPage.qml:124
+msgid "Untitled"
+msgstr ""
+
+#: pushit/components/pages/PushesPage.qml:204
+msgid "No Pushes"
+msgstr ""
+
+#: pushit/components/Slide4.qml:38
+msgid "Done!"
+msgstr ""
+
+#: pushit/components/Slide4.qml:48
+msgid "Start using "
+msgstr ""
+
+#: pushit/components/Slide3.qml:40
+msgid "Pushbullet Device"
+msgstr ""
+
+#: pushit/components/Slide3.qml:54
+msgid ""
+"For a better experience you can associate a\n"
+"new Ubuntu device to your Pushbullet account.\n"
+"(Not necessary)"
+msgstr ""
+
+#: pushit/components/Slide3.qml:71
+msgid "Device Name"
+msgstr ""
+
+#: pushit/components/Slide3.qml:72
+msgid "Ubuntu"
+msgstr ""
+
+#: pushit/components/Slide3.qml:80
+msgid "Create Device"
+msgstr ""
+
+#: pushit/components/Slide1.qml:51
+msgid "Welcome to"
+msgstr ""
+
+#: pushit/components/Slide1.qml:66
+msgid "Pushbullet client for Ubuntu"
+msgstr ""
+
+#: pushit/components/Slide1.qml:75
+msgid "Swipe left to continue"
+msgstr ""
+
+#: pushit/components/Slide2.qml:35
+msgid "Pushbullet Account"
+msgstr ""
+
+#: pushit/components/Slide2.qml:53
+msgid ""
+"To start using Pushit you need to log in your Pushbullet account.\n"
+"\n"
+"You can use one of your social account to log in Pushbullet,\n"
+"there is no need for additional subscriptions."
+msgstr ""
+
+#: pushit/components/Slide2.qml:71
+msgid "Log in"
+msgstr ""

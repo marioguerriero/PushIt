@@ -1,0 +1,17 @@
+{
+    "name": "pushit.mefrio-g",
+    "description": "Pushbullet client for ubuntu",
+    "architecture": "all",
+    "title": "pushit",
+    "hooks": {
+        "pushit": {
+            "apparmor": "pushit.apparmor",
+            "desktop":  "pushit.desktop"
+        }
+    },
+    "version": "0.2",
+    "maintainer": "Mario Guerriero <marioguerriero33@gmail.com>",
+    "framework" : "ubuntu-sdk-15.04"
+}
+
+

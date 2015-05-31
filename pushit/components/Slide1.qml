@@ -38,7 +38,7 @@ Component {
                 smooth: true
                 antialiasing: true
                 fillMode: Image.PreserveAspectFit
-                source: Qt.resolvedUrl("../pushit.png")
+                source: Qt.resolvedUrl("../../pushit.png")
             }
         }
 
