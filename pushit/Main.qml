@@ -114,7 +114,7 @@ MainView {
 
         // Show beta warning message
         if(settings.getSetting("beta") && settings.getSetting("show_beta_message"))
-            PopupUtils.open(Qt.resolvedUrl("./dialogs/BetaWarningDialog.qml"));
+            PopupUtils.open(Qt.resolvedUrl("./components/dialogs/BetaWarningDialog.qml"));
     }
 }
 

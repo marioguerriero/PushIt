@@ -144,20 +144,20 @@ Page {
                     visible: type == "file"
                     height: contentColumn.height * 0.7
                     width: contentColumn.width * 0.5
-                    color: file_type.indexOf("image") > -1 ? "transparent" : "white"
+                    color: file_type ? (file_type.indexOf("image") > -1 ? "transparent" : "white") : "transparent"
                     anchors.topMargin: units.gu(1)
                     image: Image {
                         id: img
                         anchors.fill: parent
-                        visible: file_type.indexOf("image") > -1
-                        source: file_url
+                        visible: file_type ? file_type.indexOf("image") > -1 : false
+                        source: file_url ? file_url : ""
                         fillMode: Image.PreserveAspectCrop
                     }
                     Button {
                         anchors.fill: parent
                         visible: !img.visible
                         iconName: "document-save"
-                        text: file_name
+                        text: file_name ? file_name : ""
                         color: "white"
                     }
                     MouseArea {
