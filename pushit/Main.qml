@@ -29,7 +29,7 @@ import "js/Pushbullet.js" as Pushbullet
 MainView {
     id: main
     objectName: "mainView"
-    applicationName: "pushit.mefrio"
+    applicationName: "pushit.mefrio-g"
 
     width: units.gu(100)
     height: units.gu(75)
@@ -93,6 +93,7 @@ MainView {
     Component.onCompleted: {
         // Show walkthrough page
         var showWalkthrough = settings.getSetting("show-walkthrough");
+        console.log(showWalkthrough)
         if(showWalkthrough) {
             stack.push(walkthroughPage);
             return;
@@ -113,7 +114,7 @@ MainView {
         loadData();
 
         // Show beta warning message
-        if(settings.getSetting("beta") && settings.getSetting("show_beta_message"))
+        if(settings.getSetting("beta") && settings.getSetting("show-beta-message"))
             PopupUtils.open(Qt.resolvedUrl("./components/dialogs/BetaWarningDialog.qml"));
     }
 }

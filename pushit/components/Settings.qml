@@ -26,7 +26,7 @@ Item {
 
     U1db.Database {
         id: storage
-        path: "settingsdb"
+        path: "settingsdb1"
     }
 
     U1db.Document {
@@ -37,7 +37,7 @@ Item {
         create: true
 
         defaults: {
-            show_walkthrough: false
+            show_walkthrough: true;
             token: null;
             beta: true;
             show_beta_message: true;
@@ -54,9 +54,13 @@ Item {
         if(value === undefined) {
             setSetting("beta", true);
         }
-        value = getSetting("show_beta_message");
+        value = getSetting("show-beta-message");
         if(value === undefined) {
-            setSetting("show_beta_message", true);
+            setSetting("show-beta-message", true);
+        }
+        value = getSetting("show-walkthrough");
+        if(value === undefined) {
+            setSetting("show-walkthrough", true);
         }
     }
 

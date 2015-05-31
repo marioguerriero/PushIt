@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-31 11:42+0200\n"
+"POT-Creation-Date: 2015-05-31 12:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -128,7 +128,7 @@ msgstr ""
 
 #: pushit/components/pages/PostPushPage.qml:29
 #: pushit/components/pages/PostPushPage.qml:123
-#: pushit/components/pages/PushesPage.qml:267
+#: pushit/components/pages/PushesPage.qml:269
 msgid "Push"
 msgstr ""
 
@@ -168,11 +168,11 @@ msgstr ""
 msgid "Pushes"
 msgstr ""
 
-#: pushit/components/pages/PushesPage.qml:124
+#: pushit/components/pages/PushesPage.qml:126
 msgid "Untitled"
 msgstr ""
 
-#: pushit/components/pages/PushesPage.qml:204
+#: pushit/components/pages/PushesPage.qml:206
 msgid "No Pushes"
 msgstr ""
 
@@ -233,20 +233,4 @@ msgstr ""
 
 #: pushit/components/Slide2.qml:71
 msgid "Log in"
-msgstr ""
-
-#: Main.qml:28
-msgid "Simple"
-msgstr ""
-
-#: Main.qml:41
-msgid "Hello.."
-msgstr ""
-
-#: Main.qml:48
-msgid "Tap me!"
-msgstr ""
-
-#: Main.qml:51
-msgid "..world!"
 msgstr ""

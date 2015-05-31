@@ -6,12 +6,10 @@
     "hooks": {
         "pushit": {
             "apparmor": "pushit.apparmor",
-            "desktop":  "pushit.desktop"
+            "desktop": "pushit.desktop"
         }
     },
-    "version": "0.2",
+    "version": "0.2.2",
     "maintainer": "Mario Guerriero <marioguerriero33@gmail.com>",
-    "framework" : "ubuntu-sdk-15.04"
+    "framework": "ubuntu-sdk-15.04"
 }
-
-

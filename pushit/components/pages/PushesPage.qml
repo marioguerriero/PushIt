@@ -72,18 +72,20 @@ Page {
             Behavior on height { UbuntuNumberAnimation { duration: UbuntuAnimation.SlowDuration } }
 
             // Trailing and leading actions
-            trailingActions: ListItemActions {
+            /*trailingActions: ListItemActions {
                 actions: [
                     Action {
                         iconName: "share"
                     }
                 ]
-            }
+            }*/
             leadingActions: ListItemActions {
                 actions: [
                     Action {
                         iconName: "delete"
                         onTriggered: {
+                            item.visible = false;
+                            item.height = 0; // TODO: Find a better solution
                             Pushbullet.deletePush(iden);
                         }
                     }
