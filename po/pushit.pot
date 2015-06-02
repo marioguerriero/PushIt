@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-31 12:18+0200\n"
+"POT-Creation-Date: 2015-06-02 12:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -207,18 +207,6 @@ msgstr ""
 msgid "Create Device"
 msgstr ""
 
-#: pushit/components/Slide1.qml:51
-msgid "Welcome to"
-msgstr ""
-
-#: pushit/components/Slide1.qml:66
-msgid "Pushbullet client for Ubuntu"
-msgstr ""
-
-#: pushit/components/Slide1.qml:75
-msgid "Swipe left to continue"
-msgstr ""
-
 #: pushit/components/Slide2.qml:35
 msgid "Pushbullet Account"
 msgstr ""
@@ -233,4 +221,16 @@ msgstr ""
 
 #: pushit/components/Slide2.qml:71
 msgid "Log in"
+msgstr ""
+
+#: pushit/components/Slide1.qml:51
+msgid "Welcome to"
+msgstr ""
+
+#: pushit/components/Slide1.qml:66
+msgid "Pushbullet client for Ubuntu"
+msgstr ""
+
+#: pushit/components/Slide1.qml:75
+msgid "Swipe left to continue"
 msgstr ""

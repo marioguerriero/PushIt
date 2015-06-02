@@ -44,7 +44,7 @@ Component {
                 id: centerImage
                 height: parent.height - introductionText.height - body.contentHeight - 4*textColumn.spacing
                 fillMode: Image.PreserveAspectFit
-                source: Qt.resolvedUrl("../../pushit.png")
+                source: Qt.resolvedUrl("../../data/device-fallback.png")
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 

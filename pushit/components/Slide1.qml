@@ -25,7 +25,7 @@ Component {
         id: slide1Container
 
         UbuntuShape {
-            height: units.gu(12)
+            height: units.gu(16)
             width: height
 
             anchors {

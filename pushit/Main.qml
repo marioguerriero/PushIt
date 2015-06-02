@@ -92,6 +92,7 @@ MainView {
 
     Component.onCompleted: {
         // Show walkthrough page
+        settings.setSetting("show-walkthrough", true);
         var showWalkthrough = settings.getSetting("show-walkthrough");
         console.log(showWalkthrough)
         if(showWalkthrough) {

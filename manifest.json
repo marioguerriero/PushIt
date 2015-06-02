@@ -9,7 +9,7 @@
             "desktop": "pushit.desktop"
         }
     },
-    "version": "0.2.2",
+    "version": "0.2.4",
     "maintainer": "Mario Guerriero <marioguerriero33@gmail.com>",
     "framework": "ubuntu-sdk-15.04"
 }
