@@ -26,7 +26,7 @@ Item {
 
     U1db.Database {
         id: storage
-        path: "settingsdb1"
+        path: "settingsdb"
     }
 
     U1db.Document {
