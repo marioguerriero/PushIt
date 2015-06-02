@@ -7,7 +7,8 @@ This software is under development.
 
 ## Roadmap ##
  * Push files
- * Add an Ubuntu specific device
+ * Implement push notifications
+ * Add Pushbullet account to Ubuntu Online Accounts platform
  * Handle connection and token errors
  * Create an user info page
  
